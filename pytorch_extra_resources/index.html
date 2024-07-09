@@ -1,0 +1,1035 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="通过编写 PyTorch 代码，亲手学习重要的机器学习概念。">
+      
+      
+      
+        <link rel="canonical" href="https://19z.github.io/pytorch-deep-learning/pytorch_extra_resources/">
+      
+      
+        <link rel="prev" href="../pytorch_2_intro/">
+      
+      
+        <link rel="next" href="../pytorch_cheatsheet/">
+      
+      
+      <link rel="icon" href="../assets/ztm-logo-and-pytorch-logo.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.28">
+    
+    
+      
+        <title>PyTorch 额外资源 - 从零到精通：PyTorch 深度学习训练营</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#pytorch" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="从零到精通：PyTorch 深度学习训练营" class="md-header__button md-logo" aria-label="从零到精通：PyTorch 深度学习训练营" data-md-component="logo">
+      
+  <img src="../assets/ztm-logo-and-pytorch-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            从零到精通：PyTorch 深度学习训练营
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              PyTorch 额外资源
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/19z/pytorch-deep-learning/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    19z/pytorch_deep_learning
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="从零到精通：PyTorch 深度学习训练营" class="md-nav__button md-logo" aria-label="从零到精通：PyTorch 深度学习训练营" data-md-component="logo">
+      
+  <img src="../assets/ztm-logo-and-pytorch-logo.png" alt="logo">
+
+    </a>
+    从零到精通：PyTorch 深度学习训练营
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/19z/pytorch-deep-learning/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    19z/pytorch_deep_learning
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    首页
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00_pytorch_fundamentals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    00. PyTorch 基础
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_pytorch_workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    01. PyTorch 工作流程基础
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_pytorch_classification/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    02. PyTorch 神经网络分类
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_pytorch_computer_vision/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    03. PyTorch计算机视觉
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_pytorch_custom_datasets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    04. PyTorch 自定义数据集
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_pytorch_going_modular/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    05. PyTorch 模块化
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_pytorch_transfer_learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    06. PyTorch迁移学习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_pytorch_experiment_tracking/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    07. PyTorch 实验跟踪
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_pytorch_paper_replicating/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    08. PyTorch 论文复现
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_pytorch_model_deployment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    09. PyTorch 模型部署
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pytorch_2_intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    快速入门 PyTorch 2.0 教程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    PyTorch 额外资源
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    PyTorch 额外资源
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pytorch_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔥 纯PyTorch资源
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pytorch_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      📈 让纯PyTorch更强大/增加功能的库
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pytorch_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      📖 PyTorch 书籍推荐
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏗 机器学习与深度学习工程资源
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      🗃 如何找到数据集
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      深度学习领域的工具
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="深度学习领域的工具">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      😎 计算机视觉
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nlp" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 自然语言处理 (NLP)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎤 语音和音频
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      ❓推荐引擎
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⏳ 时间序列
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      👩‍💻 如何找到工作
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pytorch_cheatsheet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PyTorch 速查表
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pytorch_most_common_errors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PyTorch 中最常见的三种错误
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pytorch_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔥 纯PyTorch资源
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pytorch_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      📈 让纯PyTorch更强大/增加功能的库
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pytorch_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      📖 PyTorch 书籍推荐
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏗 机器学习与深度学习工程资源
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      🗃 如何找到数据集
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      深度学习领域的工具
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="深度学习领域的工具">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      😎 计算机视觉
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nlp" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 自然语言处理 (NLP)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎤 语音和音频
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      ❓推荐引擎
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⏳ 时间序列
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      👩‍💻 如何找到工作
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="pytorch">PyTorch 额外资源</h1>
+<p>尽管《零到精通 PyTorch》课程总时长超过 40 小时，但你很可能在完成课程后仍然充满学习的热情。</p>
+<p>毕竟，这门课程是构建 PyTorch 动力的绝佳途径。</p>
+<p>以下资源是为了扩展课程内容而收集的。</p>
+<p>不过要提醒一下：这里的内容非常丰富。</p>
+<p>最好是从每个部分中选择 1 到 2 个资源（或更少）进行深入探索，其余的可以留待以后学习。</p>
+<p>哪一个最好呢？</p>
+<p>嗯，如果它们能被列入这个清单，你可以认为它们都是优质的资源。</p>
+<p>大多数是针对 PyTorch 的，适合作为课程的延伸，但也有少数不是专门针对 PyTorch 的，不过它们在机器学习领域仍然非常有价值。</p>
+<h2 id="pytorch_1">🔥 纯PyTorch资源</h2>
+<ul>
+<li><a href="https://pytorch.org/blog/"><strong>PyTorch博客</strong></a> — 从源头上了解PyTorch的最新动态。我大约每个月查看一次博客更新。</li>
+<li><a href="https://pytorch.org/docs"><strong>PyTorch文档</strong></a> — 我们将在课程中多次探索这一点，但仍有许多内容我们未曾涉及。没关系，经常探索并在必要时深入了解。</li>
+<li><a href="https://pytorch.org/tutorials/recipes/recipes/tuning_guide.html#"><strong>PyTorch性能调优指南</strong></a> — 课程结束后，您可能首先想做的就是让您的PyTorch模型更快（训练和推理），PyTorch性能调优指南将帮助您做到这一点。</li>
+<li><a href="https://pytorch.org/tutorials/recipes/recipes_index.html"><strong>PyTorch食谱</strong></a> — PyTorch食谱是一系列小型教程，展示您可能想要创建的常见PyTorch功能和工作流程，例如<a href="https://pytorch.org/tutorials/recipes/recipes/loading_data_recipe.html">在PyTorch中加载数据</a>和<a href="https://pytorch.org/tutorials/recipes/recipes/saving_and_loading_models_for_inference.html">在PyTorch中保存和加载用于推理的模型</a>。</li>
+<li><a href="https://pytorch.org/ecosystem/"><strong>PyTorch生态系统</strong></a> - 一系列基于纯PyTorch构建的工具，为不同领域添加专业功能，从用于3D计算机视觉的<a href="https://pytorch3d.org">PyTorch3D</a>到用于快速数据增强的<a href="https://github.com/albumentations-team/albumentations">Albumentations</a>，再到用于模型评估的<a href="https://torchmetrics.readthedocs.io/en/stable/">TorchMetrics</a>（感谢<a href="https://github.com/mrdbourke/pytorch-deep-learning/issues/64#issuecomment-1175164531">Alessandro的提示</a>）。</li>
+<li><a href="https://code.visualstudio.com/docs/datascience/pytorch-support"><strong>在VSCode中设置PyTorch</strong></a> — VSCode是最受欢迎的IDE之一。它的PyTorch支持越来越好。在整个Zero to Mastery PyTorch课程中，我们使用Google Colab是因为它的易用性。但很可能您很快就会在VSCode这样的IDE中进行开发。</li>
+</ul>
+<h2 id="pytorch_2">📈 让纯PyTorch更强大/增加功能的库</h2>
+<p>本课程专注于纯PyTorch（使用最少的外部库），因为如果你知道如何编写纯PyTorch，你就能学会使用各种扩展库。</p>
+<ul>
+<li><a href="https://github.com/fastai/fastai"><strong>fast.ai</strong></a> — fastai是一个开源库，负责处理构建神经网络的许多繁琐部分，并使创建最先进的模型只需几行代码成为可能。他们的免费库、<a href="https://course.fast.ai">课程</a>和<a href="https://docs.fast.ai">文档</a>都是世界级的。</li>
+<li><a href="https://github.com/mosaicml/composer"><strong>MosaicML 提高模型训练效率</strong></a> — 训练模型的速度越快，你就能越快地找出有效和无效的方法。MosaicML的开源<code>Composer</code>库通过在后台实现加速算法，帮助你用PyTorch更快地训练神经网络，这意味着你可以更快地从现有的PyTorch模型中获得更好的结果。他们的所有代码都是开源的，文档也非常出色。</li>
+<li><a href="https://www.pytorchlightning.ai"><strong>PyTorch Lightning 减少样板代码</strong></a> — PyTorch Lightning负责处理许多在纯PyTorch中经常需要手动完成的步骤，例如编写训练和测试循环、模型检查点、日志记录等。PyTorch Lightning在PyTorch的基础上构建，允许你用更少的代码制作PyTorch模型。</li>
+</ul>
+<p><img alt="扩展/增强纯PyTorch的库。" src="https://raw.githubusercontent.com/mrdbourke/pytorch-deep-learning/main/images/extras-001-libraries-to-make-pytorch-better-or-faster.jpeg" /></p>
+<p><em>扩展/增强纯PyTorch的库。</em></p>
+<h2 id="pytorch_3">📖 PyTorch 书籍推荐</h2>
+<ul>
+<li><a href="https://www.amazon.com/Machine-Learning-PyTorch-Scikit-Learn-scikit-learn-ebook-dp-B09NW48MR1/dp/B09NW48MR1/"><strong>使用 PyTorch 和 Scikit-Learn 进行机器学习：通过 Sebastian Raschka 编写的 Python 开发机器学习和深度学习模型</strong></a> — 一本极佳的机器学习和深度学习入门书籍。从使用 Scikit-Learn 进行传统机器学习算法开始，解决结构化数据（表格或行和列或 Excel 风格）问题，然后切换到如何使用 PyTorch 进行非结构化数据（如计算机视觉和自然语言处理）的深度学习。</li>
+<li><a href="https://pytorchstepbystep.com"><strong>Daniel Voigt Godoy 的 PyTorch 逐步系列</strong></a> — 与 Zero to Mastery PyTorch 课程从代码优先的角度不同，逐步系列从概念优先的角度涵盖 PyTorch 和深度学习，并附有代码示例。该系列有三版，分别是基础、计算机视觉和序列（NLP），是我最喜欢的从零开始学习 PyTorch 的资源之一。</li>
+<li><a href="https://d2l.ai"><strong>深入深度学习书籍</strong></a> — 可能是互联网上最全面的深度学习概念资源，附有 PyTorch、TensorFlow 和 Gluon 的代码示例。而且全部免费！例如，可以查看作者对我们在 <a href="https://www.learnpytorch.io/08_pytorch_paper_replicating/">08. PyTorch 论文复现</a> 中涉及的 <a href="https://d2l.ai/chapter_attention-mechanisms-and-transformers/vision-transformer.html">视觉变换器</a> 的解释。</li>
+<li><strong>额外推荐：</strong> <a href="https://course.fast.ai">fast.ai 课程</a>（免费在线提供）也有一本免费在线书籍，<a href="https://course.fast.ai/Resources/book.html">使用 fastai 和 PyTorch 进行深度学习</a>。</li>
+</ul>
+<p><img alt="学习 PyTorch 以及深度学习一般知识的教科书。" src="https://raw.githubusercontent.com/mrdbourke/pytorch-deep-learning/main/images/extras-002-books-for-pytorch.jpeg" /></p>
+<p><em>学习 PyTorch 以及深度学习一般知识的教科书。</em></p>
+<h2 id="_1">🏗 机器学习与深度学习工程资源</h2>
+<p>机器学习工程（也称为 MLOps 或 ML 操作）是将您创建的模型交付给他人的实践。这可能意味着通过公共应用程序或幕后工作来做出商业决策。</p>
+<p>以下资源将帮助您了解更多关于部署机器学习模型的步骤。</p>
+<ul>
+<li><strong><a href="https://www.amazon.com/Designing-Machine-Learning-Systems-Production-Ready/dp/1098107969">Chip Huyen 的《设计机器学习系统》</a></strong> — 如果您想构建一个 ML 系统，了解其他人如何做到这一点会很有帮助。Chip 的书较少关注构建单个机器学习模型（尽管书中有很多关于这方面的内容），而是关注构建一个连贯的 ML 系统。它涵盖了从数据工程到模型构建、模型部署（在线和离线）到模型监控的所有内容。更棒的是，这本书读起来很愉快，可以看出这本书是由一位作家写的（Chip 之前曾写过几本书）。</li>
+<li><strong><a href="https://madewithml.com">Goku Mohandas 的 Made With ML</a></strong> — 每当我想要学习或参考与 MLOps 相关的内容时，我都会去 <a href="https://madewithml.com/#mlops">madewithml.com/mlops</a> 看看是否有相关的课程。Made With ML 不仅教你许多不同 ML 模型的基础知识，还介绍了如何构建一个端到端的 ML 系统，并提供了大量的代码和工具示例。</li>
+<li><strong><a href="http://www.mlebook.com">Andriy Burkov 的《机器学习工程》</a></strong> — 尽管这本书可以在线免费阅读，但我一出版就买了。我多次将其作为参考资料和学习更多关于 ML 工程的内容，它基本上一直放在我的桌上或触手可及的地方。Burkov 很好地抓住了重点，并在必要时引用了进一步的材料。</li>
+<li><strong><a href="https://fullstackdeeplearning.com">Full Stack Deep Learning 课程</a></strong> — 我第一次参加这个课程是在 2021 年。它不断发展，涵盖了该领域最新的最佳工具。它将教你如何规划一个解决 ML 问题的项目，如何获取或创建数据，如何在 ML 项目出错时进行故障排除，最重要的是，如何构建 ML 驱动的产品。</li>
+</ul>
+<p><img alt="提升您机器学习工程技能的资源（围绕构建机器学习模型的所有步骤）。" src="https://raw.githubusercontent.com/mrdbourke/pytorch-deep-learning/main/images/extras-003-places-to-learn-ml-ops.jpeg" /></p>
+<p><em>提升您机器学习工程技能的资源（围绕构建机器学习模型的所有步骤）。</em></p>
+<h2 id="_2">🗃 如何找到数据集</h2>
+<p>机器学习项目始于数据。</p>
+<p>没有数据，就没有机器学习。</p>
+<p>以下资源是寻找各种主题和问题领域中开源且通常可直接使用的数据集的最佳选择之一。</p>
+<ul>
+<li><a href="https://paperswithcode.com/datasets"><strong>Paperswithcode 数据集</strong></a> — 搜索最常用和常见的机器学习基准数据集，了解它们包含的内容、来源以及可找到的位置。通常还能看到每个数据集上表现最佳的模型。</li>
+<li><a href="https://huggingface.co/docs/datasets"><strong>HuggingFace 数据集</strong></a> — 不仅是一个跨广泛问题领域查找数据集的资源，还是一个库，可用于几行代码内下载并开始使用这些数据集。</li>
+<li><strong><a href="https://www.kaggle.com/datasets">Kaggle 数据集</a></strong> — 找到通常伴随 Kaggle 竞赛的各种数据集，其中许多直接来自行业。</li>
+<li><strong><a href="https://datasetsearch.research.google.com">Google 数据集搜索</a></strong> — 就像使用 Google 搜索一样，但专门针对数据集。</li>
+</ul>
+<p>这些资源应该足够开始使用，但对于特定的具体问题，你可能需要构建自己的数据集。</p>
+<p><img alt="各种问题领域中现有和开源数据集的寻找地点。" src="https://raw.githubusercontent.com/mrdbourke/pytorch-deep-learning/main/images/extras-004-places-to-find-datasets.jpeg" /></p>
+<p><em>各种问题领域中现有和开源数据集的寻找地点。</em></p>
+<h2 id="_3">深度学习领域的工具</h2>
+<p>以下资源专注于特定问题领域的库和预训练模型，如计算机视觉和推荐引擎/系统。</p>
+<h3 id="_4">😎 计算机视觉</h3>
+<p>我们在 <a href="https://www.learnpytorch.io/03_pytorch_computer_vision/">03. PyTorch 计算机视觉</a> 中介绍了计算机视觉，但作为快速回顾，计算机视觉是让计算机“看”的艺术。</p>
+<p>如果你的数据是视觉的，如图像、X光片、生产线视频甚至手写文档，那么这可能是一个计算机视觉问题。</p>
+<ul>
+<li><strong><a href="https://pytorch.org/vision/stable/index.html">TorchVision</a></strong> — PyTorch 的计算机视觉库。找到许多加载视觉数据的方法以及许多可用于自己问题的预训练计算机视觉模型。</li>
+<li><a href="https://github.com/rwightman/pytorch-image-models"><strong>timm (Torch Image Models) 库</strong></a> — 最全面的计算机视觉库和预训练计算机视觉模型资源之一。几乎所有使用 PyTorch 进行计算机视觉的新研究都在某种程度上利用了 <code>timm</code> 库。</li>
+<li><strong><a href="https://github.com/ultralytics/yolov5">Yolov5 用于目标检测</a></strong> — 如果你想在 PyTorch 中构建目标检测模型，<code>yolov5</code> GitHub 仓库可能是快速入门的最佳方式。</li>
+<li><strong><a href="https://github.com/facebookresearch/vissl">VISSL (Vision Self-Supervised Learning) 库</a></strong> — 自监督学习是让数据自己学习模式的艺术。与提供不同类别的标签并学习表示不同，自监督学习试图在没有标签的情况下复制类似的结果。VISSL 提供了一种易于使用的方式，通过 PyTorch 开始使用自监督学习计算机视觉模型。</li>
+</ul>
+<h3 id="nlp">📚 自然语言处理 (NLP)</h3>
+<p>自然语言处理涉及在文本中寻找模式。</p>
+<p>例如，你可能想要从支持工单中提取重要实体或将文档分类到不同类别中。</p>
+<p>如果你的问题涉及大量文本，你会想要查看以下资源。</p>
+<ul>
+<li><strong><a href="https://pytorch.org/text/stable/index.html">TorchText</a></strong> — PyTorch 内置的文本领域库。与 TorchVision 类似，它包含许多预构建的方法来加载数据和一系列可适应自己问题的预训练模型。</li>
+<li><a href="https://huggingface.co/docs/transformers/index"><strong>HuggingFace Transformers 库</strong></a> — HuggingFace Transformers 库在 GitHub 上的星数比 PyTorch 库本身还要多。这有其原因。并不是说 HuggingFace Transformers 比 PyTorch 更好，而是因为它在它所做的事情上做得最好：为 NLP（以及更多）提供数据加载器和预训练的最新模型。</li>
+<li><strong>额外提示：</strong> 想要了解更多关于 HuggingFace Transformers 库及其周边的一切，HuggingFace 团队提供了一个<a href="https://huggingface.co/course/chapter1/1">免费在线课程</a>。</li>
+</ul>
+<h3 id="_5">🎤 语音和音频</h3>
+<p>如果你的问题涉及音频文件或语音数据，如尝试对声音进行分类或将语音转录为文本，你会想要查看以下资源。</p>
+<ul>
+<li><a href="https://pytorch.org/audio/stable/index.html"><strong>TorchAudio</strong></a> — PyTorch 的音频领域库。找到内置的方法来准备数据和预构建的模型架构来寻找音频数据中的模式。</li>
+<li><strong><a href="https://speechbrain.github.io">SpeechBrain</a></strong> — 一个基于 PyTorch 的开源库，用于处理语音问题，如识别（将语音转为文本）、语音增强、语音处理、文本到语音等。你可以在 <a href="https://huggingface.co/speechbrain">HuggingFace Hub</a> 上尝试他们的许多模型。</li>
+</ul>
+<h3 id="_6">❓推荐引擎</h3>
+<p>互联网是由推荐驱动的。YouTube 推荐视频，Netflix 推荐电影和电视节目，亚马逊推荐产品，Medium 推荐文章。</p>
+<p>如果你正在构建一个在线商店或在线市场，你很可能会想开始向你的客户推荐东西。</p>
+<p>为此，你会想要构建一个推荐引擎。</p>
+<ul>
+<li><strong><a href="https://pytorch.org/torchrec/">TorchRec</a></strong> — PyTorch 最新的内置领域库，用于通过深度学习驱动推荐引擎。TorchRec 提供了可以尝试和使用的推荐数据集和模型。尽管如果自定义推荐引擎不符合你的要求（或工作量太大），许多云供应商提供了推荐引擎服务。</li>
+</ul>
+<h3 id="_7">⏳ 时间序列</h3>
+<p>如果你的数据有时间组件，并且你希望利用过去的模式来预测未来，例如，预测明年比特币的价格（不要尝试这个，<a href="https://dev.mrdbourke.com/tensorflow-deep-learning/10_time_series_forecasting_in_tensorflow/#model-10-why-forecasting-is-bs-the-turkey-problem">股票预测是 BS</a>）或更合理的预测下周城市电力需求的问题，你会想要查看时间序列库。</p>
+<p>这两个库不一定使用 PyTorch，但由于时间序列是一个常见问题，我在这里包含了它们。</p>
+<ul>
+<li><a href="https://github.com/salesforce/Merlion"><strong>Salesforce Merlion</strong></a> — 通过使用 Merlion 的数据加载器、预构建模型、AutoML（自动化机器学习）超参数调整等，将你的时间序列数据转化为情报，所有这些都是受实际用例启发的，用于时间序列预测和时间序列异常检测。</li>
+<li><a href="https://github.com/facebookresearch/Kats"><strong>Facebook Kats</strong></a> — Facebook 的整个业务依赖于预测：何时是放置广告的最佳时间？所以你可以打赌他们在时间序列预测软件上投入了大量资金。Kats（Kit to Analyze Time Series data）是他们的开源库，用于时间序列预测、检测和数据处理。当然，请提供您希望翻译的英文 Markdown 内容，我会将其翻译为中文，并保持原有格式。</li>
+</ul>
+<h2 id="_8">👩‍💻 如何找到工作</h2>
+<p>完成机器学习课程后，你很可能会想运用你的机器学习技能。</p>
+<p>甚至更好的是，用它们来赚钱。</p>
+<p>以下资源是关于如何找到工作的良好指南。</p>
+<ul>
+<li><strong><a href="https://www.mrdbourke.com/how-can-a-beginner-data-scientist-like-me-gain-experience/">"像我这样的初学者数据科学家如何获得经验？"</a> 作者：Daniel Bourke</strong> — 我经常被问到“如何获得经验？”这个问题，因为许多工作要求都写着“需要经验”。事实证明，获得经验（和工作的）最佳方式之一是：<em>在拥有工作之前就开始做这份工作</em>。</li>
+<li><strong><a href="https://eugeneyan.com/writing/you-dont-need-another-mooc/">你并不真的需要另一个MOOC</a> 作者：Eugene Yan</strong> — MOOC代表大规模在线公开课程（或类似的东西）。MOOCs非常美好。它们让世界各地的人们按照自己的节奏学习。然而，人们可能会不断重复做MOOC，认为“如果我再做一门，我就会准备好了”。事实上，几门就足够了，MOOC的回报很快就会开始减少。相反，离开常规路径，开始构建，开始创造，开始学习无法被教授的技能。展示这些技能来获得工作。</li>
+<li><strong>额外推荐：</strong> 关于机器学习面试最全面的资源，请查看Chip Huyen的免费<a href="https://huyenchip.com/ml-interviews-book/">《机器学习面试指南》</a>。</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/mrdbourke" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/mrdbourke/pytorch-deep-learning" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.youtube.com/channel/UCr8O8l5cCX85Oem1d18EezQ" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.top"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+    
+  </body>
+</html>
