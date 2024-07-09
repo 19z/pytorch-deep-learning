@@ -1,13 +1,13 @@
-# Going Modular Scripts
+# 模块化脚本
 
-The Python scripts in this directory were generated using the notebook [05. Going Modular Part 2 (script mode)](https://github.com/mrdbourke/pytorch-deep-learning/blob/main/going_modular/05_pytorch_going_modular_script_mode.ipynb).
+本目录中的Python脚本是通过[05. 模块化 Part 2（脚本模式）](https://github.com/mrdbourke/pytorch-deep-learning/blob/main/going_modular/05_pytorch_going_modular_script_mode.ipynb)笔记本生成的。
 
-They breakdown as follows: 
-* `data_setup.py` - a file to prepare and download data if needed.
-* `engine.py` - a file containing various training functions.
-* `model_builder.py` - a file to create a PyTorch TinyVGG model.
-* `train.py` - a file to leverage all other files and train a target PyTorch model.
-* `utils.py` - a file dedicated to helpful utility functions.
-* **Extra:** `predictions.py` - a file for making predictions with a trained PyTorch model and input image (the main function, `pred_and_plot_image()` was originally created in [06. PyTorch Transfer Learning section 6](https://www.learnpytorch.io/06_pytorch_transfer_learning/#6-make-predictions-on-images-from-the-test-set)).
+它们的分工如下：
+* `data_setup.py` - 用于准备和下载数据（如果需要）的文件。
+* `engine.py` - 包含各种训练函数的文件。
+* `model_builder.py` - 用于创建PyTorch TinyVGG模型的文件。
+* `train.py` - 利用所有其他文件训练目标PyTorch模型的文件。
+* `utils.py` - 专门用于有用的实用函数的文件。
+* **额外内容：** `predictions.py` - 使用训练好的PyTorch模型和输入图像进行预测的文件（主要功能`pred_and_plot_image()`最初在[06. PyTorch迁移学习第6节](https://www.learnpytorch.io/06_pytorch_transfer_learning/#6-make-predictions-on-images-from-the-test-set)中创建）。
 
-For an explanation of how this was done, refer to section [05. PyTorch Going Modular of the learnpytorch.io book](https://www.learnpytorch.io/05_pytorch_going_modular/).
+有关如何实现这一点的解释，请参考[learnpytorch.io书籍的05. PyTorch模块化部分](https://www.learnpytorch.io/05_pytorch_going_modular/)。

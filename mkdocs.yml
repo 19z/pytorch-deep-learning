@@ -1,9 +1,9 @@
-site_name: Zero to Mastery Learn PyTorch for Deep Learning
-site_url: https://www.learnpytorch.io
-site_description: Learn important machine learning concepts hands-on by writing PyTorch code.
+site_name: 从零到精通：PyTorch 深度学习训练营
+site_url: https://19z.github.io/pytorch-deep-learning/
+site_description: 通过编写 PyTorch 代码，亲手学习重要的机器学习概念。
 
-repo_url: https://github.com/mrdbourke/pytorch-deep-learning/
-repo_name: mrdbourke/pytorch_deep_learning
+repo_url: https://github.com/19z/pytorch-deep-learning/
+repo_name: 19z/pytorch_deep_learning
 
 theme:
   name: material
@@ -31,21 +31,21 @@ plugins:
 edit_uri: ""
 
 nav:
-  - Home: 'index.md'
-  - 00. Getting Started with PyTorch: '00_pytorch_fundamentals.ipynb'
-  - 01. PyTorch Machine Learning Workflow: '01_pytorch_workflow.ipynb'
-  - 02. PyTorch Neural Network Classification: '02_pytorch_classification.ipynb'
-  - 03. PyTorch Computer Vision: '03_pytorch_computer_vision.ipynb'
-  - 04. PyTorch Custom Datasets: '04_pytorch_custom_datasets.ipynb'
-  - 05. PyTorch Going Modular: '05_pytorch_going_modular.md'
-  - 06. PyTorch Transfer Learning: '06_pytorch_transfer_learning.ipynb'
-  - 07. PyTorch Experiment Tracking: '07_pytorch_experiment_tracking.ipynb'
-  - 08. Replicating Machine Learning Research Papers with PyTorch: '08_pytorch_paper_replicating.ipynb'
-  - 09. Deploying PyTorch Machine Learning Models: '09_pytorch_model_deployment.ipynb'
-  - A Quick PyTorch 2 Tutorial: 'pytorch_2_intro.ipynb'
-  - PyTorch Extra Resources: 'pytorch_extra_resources.md'
-  - PyTorch Cheatsheet: 'pytorch_cheatsheet.ipynb'
-  - Three Most Common PyTorch Errors: 'pytorch_most_common_errors.ipynb'
+  - 首页: 'index.md'
+  - 00. PyTorch 入门: '00_pytorch_fundamentals.ipynb'
+  - 01. PyTorch 机器学习工作流程: '01_pytorch_workflow.ipynb'
+  - 02. PyTorch 神经网络分类: '02_pytorch_classification.ipynb'
+  - 03. PyTorch 计算机视觉: '03_pytorch_computer_vision.ipynb'
+  - 04. PyTorch 自定义数据集: '04_pytorch_custom_datasets.ipynb'
+  - 05. PyTorch 模块化: '05_pytorch_going_modular.md'
+  - 06. PyTorch 迁移学习: '06_pytorch_transfer_learning.ipynb'
+  - 07. PyTorch 实验跟踪: '07_pytorch_experiment_tracking.ipynb'
+  - 08. 使用 PyTorch 复现机器学习研究论文: '08_pytorch_paper_replicating.ipynb'
+  - 09. 部署 PyTorch 机器学习模型: '09_pytorch_model_deployment.ipynb'
+  - PyTorch 2 快速教程: 'pytorch_2_intro.ipynb'
+  - PyTorch 额外资源: 'pytorch_extra_resources.md'
+  - PyTorch 速查表: 'pytorch_cheatsheet.ipynb'
+  - 三个最常见的 PyTorch 错误: 'pytorch_most_common_errors.ipynb'
   # - Test 00 as markdown: '00_pytorch_fundamentals.md'
 
 extra:

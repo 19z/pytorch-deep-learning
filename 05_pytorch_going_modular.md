@@ -1,131 +1,132 @@
-[View Source Code](https://github.com/mrdbourke/pytorch-deep-learning/blob/main/05_pytorch_going_modular.md) | [View Slides](https://github.com/mrdbourke/pytorch-deep-learning/blob/main/slides/05_pytorch_going_modular.pdf) 
+[View Source Code](https://github.com/19z/pytorch-deep-learning/blob/main/05_pytorch_going_modular.md) | [View Slides](https://github.com/mrdbourke/pytorch-deep-learning/blob/main/slides/05_pytorch_going_modular.pdf)
 
-# 05. PyTorch Going Modular
+# 05. PyTorch 模块化
 
-This section answers the question, "how do I turn my notebook code into Python scripts?"
+本节回答了这样一个问题：“如何将我的笔记本代码转换为 Python 脚本？”
 
-To do so, we're going to turn the most useful code cells in [notebook 04. PyTorch Custom Datasets](https://www.learnpytorch.io/04_pytorch_custom_datasets/) into a series of Python scripts saved to a directory called [`going_modular`](https://github.com/mrdbourke/pytorch-deep-learning/tree/main/going_modular).
+为此，我们将把 [notebook 04. PyTorch 自定义数据集](https://www.learnpytorch.io/04_pytorch_custom_datasets/) 中最有用的代码单元转换为一系列 Python
+脚本，保存到名为 [`going_modular`](https://github.com/mrdbourke/pytorch-deep-learning/tree/main/going_modular) 的目录中。
 
-## What is going modular?
+## 什么是模块化？
 
-Going modular involves turning notebook code (from a Jupyter Notebook or Google Colab notebook) into a series of different Python scripts that offer similar functionality.
+模块化涉及将笔记本代码（来自 Jupyter Notebook 或 Google Colab 笔记本）转换为一系列提供类似功能的 Python 脚本。
 
-For example, we could turn our notebook code from a series of cells into the following Python files:
+例如，我们可以将笔记本代码从一系列单元转换为以下 Python 文件：
 
-* `data_setup.py` - a file to prepare and download data if needed.
-* `engine.py` - a file containing various training functions.
-* `model_builder.py` or `model.py` - a file to create a PyTorch model.
-* `train.py` - a file to leverage all other files and train a target PyTorch model.
-* `utils.py` - a file dedicated to helpful utility functions.
+* `data_setup.py` - 用于准备和下载数据（如果需要）的文件。
+* `engine.py` - 包含各种训练函数的文件。
+* `model_builder.py` 或 `model.py` - 用于创建 PyTorch 模型的文件。
+* `train.py` - 利用所有其他文件并训练目标 PyTorch 模型的文件。
+* `utils.py` - 专门用于有用工具函数的文件。
 
-> **Note:** The naming and layout of the above files will depend on your use case and code requirements. Python scripts are as general as individual notebook cells, meaning, you could create one for almost any kind of functionality.
+> **注意：** 上述文件的命名和布局将取决于您的使用场景和代码需求。Python 脚本与单个笔记本单元一样通用，这意味着，您几乎可以为任何类型的功能创建一个脚本。
 
-## Why would you want to go modular?
+## 为什么要模块化？
 
-Notebooks are fantastic for iteratively exploring and running experiments quickly.
+笔记本非常适合迭代地探索和快速运行实验。
 
-However, for larger scale projects you may find Python scripts more reproducible and easier to run.
+然而，对于更大规模的项目，您可能会发现 Python 脚本更具可重复性且更易于运行。
 
-Though this is a debated topic, as companies like [Netflix have shown how they use notebooks for production code](https://netflixtechblog.com/notebook-innovation-591ee3221233).
+尽管这是一个有争议的话题，但像 [Netflix 这样的公司已经展示了他们如何使用笔记本进行生产代码](https://netflixtechblog.com/notebook-innovation-591ee3221233)。
 
-**Production code** is code that runs to offer a service to someone or something.
+**生产代码** 是运行以向某人或某物提供服务的代码。
 
-For example, if you have an app running online that other people can access and use, the code running that app is considered **production code**.
+例如，如果您有一个在线运行的应用程序，其他人可以访问和使用，那么运行该应用程序的代码就被视为 **生产代码**。
 
-And libraries like fast.ai's [`nb-dev`](https://github.com/fastai/nbdev) (short for notebook development) enable you to write whole Python libraries (including documentation) with Jupyter Notebooks.
+并且像 fast.ai 的 [`nb-dev`](https://github.com/fastai/nbdev)（笔记本开发的简称）这样的库，使您能够使用 Jupyter Notebooks 编写整个 Python 库（包括文档）。
 
-### Pros and cons of notebooks vs Python scripts
+### 笔记本与Python脚本的优缺点
 
-There's arguments for both sides.
+双方都有各自的理由。
 
-But this list sums up a few of the main topics.
+但这个列表总结了几个主要议题。
 
-|               | **Pros**                                               | **Cons**                                     |
-| ------------- | ------------------------------------------------------ | -------------------------------------------- |
-| **Notebooks** | Easy to experiment/get started                         | Versioning can be hard                       |
-|               | Easy to share (e.g. a link to a Google Colab notebook) | Hard to use only specific parts              |
-|               | Very visual                                            | Text and graphics can get in the way of code |
+|         | **优点**                          | **缺点**       |
+|---------|---------------------------------|--------------|
+| **笔记本** | 易于实验/入门                         | 版本控制可能很困难    |
+|         | 易于分享（例如，分享一个Google Colab笔记本的链接） | 难以仅使用特定部分    |
+|         | 非常直观                            | 文本和图形可能会妨碍代码 |
 
-|                    | **Pros**                                                                            | **Cons**                                                                                  |
-| ------------------ | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| **Python scripts** | Can package code together (saves rewriting similar code across different notebooks) | Experimenting isn't as visual (usually have to run the whole script rather than one cell) |
-|                    | Can use git for versioning                                                          |                                                                                           |
-|                    | Many open source projects use scripts                                               |                                                                                           |
-|                    | Larger projects can be run on cloud vendors (not as much support for notebooks)     |                                                                                           |
+|              | **优点**                        | **缺点**                    |
+|--------------|-------------------------------|---------------------------|
+| **Python脚本** | 可以将代码打包在一起（避免在不同笔记本中重复编写相似代码） | 实验不够直观（通常需要运行整个脚本而不是单个单元） |
+|              | 可以使用git进行版本控制                 |                           |
+|              | 许多开源项目使用脚本                    |                           |
+|              | 大型项目可以在云服务商上运行（对笔记本的支持不如脚本）   |                           |
 
-### My workflow
+### 我的工作流程
 
-I usually start machine learning projects in Jupyter/Google Colab notebooks for quick experimentation and visualization.
+我通常在Jupyter/Google Colab笔记本中开始机器学习项目，以便快速实验和可视化。
 
-Then when I've got something working, I move the most useful pieces of code to Python scripts.
+然后，当我有了一些成果后，我会将最有用的代码片段移到Python脚本中。
 
-<img src="https://raw.githubusercontent.com/mrdbourke/pytorch-deep-learning/main/images/05-my-workflow-for-experimenting.png" alt="one possible workflow for writing machine learning code, start with jupyter or google colab notebooks and then move to Python scripts when you've got something working." width=1000/>
+<img src="https://raw.githubusercontent.com/mrdbourke/pytorch-deep-learning/main/images/05-my-workflow-for-experimenting.png" alt="编写机器学习代码的一种可能工作流程，从Jupyter或Google Colab笔记本开始，然后在有了一些成果后转到Python脚本。"/>
 
-*There are many possible workflows for writing machine learning code. Some prefer to start with scripts, others (like me) prefer to start with notebooks and go to scripts later on.*
+*编写机器学习代码有许多可能的工作流程。有些人喜欢从脚本开始，而另一些人（像我一样）更喜欢从笔记本开始，稍后再转到脚本。*
 
-### PyTorch in the wild
+### 实际应用中的PyTorch
 
-In your travels, you'll see many code repositories for PyTorch-based ML projects have instructions on how to run the PyTorch code in the form of Python scripts.
+在你探索的过程中，你会发现许多基于PyTorch的机器学习项目的代码库都有如何以Python脚本形式运行PyTorch代码的说明。
 
-For example, you might be instructed to run code like the following in a terminal/command line to train a model:
+例如，你可能会被指示在终端/命令行中运行如下代码来训练模型：
 
 ```
 python train.py --model MODEL_NAME --batch_size BATCH_SIZE --lr LEARNING_RATE --num_epochs NUM_EPOCHS
 ```
+<img src="https://raw.githubusercontent.com/mrdbourke/pytorch-deep-learning/main/images/05-python-train-command-line-annotated.png" alt="使用命令行调用PyTorch模型训练脚本，并设置不同的超参数"/> 
 
-<img src="https://raw.githubusercontent.com/mrdbourke/pytorch-deep-learning/main/images/05-python-train-command-line-annotated.png" alt="command line call for training a PyTorch model with different hyperparameters" width=1000/> 
+*在命令行中运行带有各种超参数设置的PyTorch `train.py`脚本。*
 
-*Running a PyTorch `train.py` script on the command line with various hyperparameter settings.*
+在这种情况下，`train.py`是目标Python脚本，它可能包含训练PyTorch模型的函数。
 
-In this case, `train.py` is the target Python script, it'll likely contain functions to train a PyTorch model.
+而`--model`、`--batch_size`、`--lr`和`--num_epochs`被称为参数标志。
 
-And `--model`, `--batch_size`, `--lr` and `--num_epochs` are known as argument flags.
+你可以将这些参数设置为任何你喜欢的值，如果它们与`train.py`兼容，它们就会工作，否则就会报错。
 
-You can set these to whatever values you like and if they're compatible with `train.py`, they'll work, if not, they'll error.
-
-For example, let's say we wanted to train our TinyVGG model from notebook 04 for 10 epochs with a batch size of 32 and a learning rate of 0.001:
+例如，假设我们想用批量大小为32、学习率为0.001的参数训练笔记本04中的TinyVGG模型10个周期：
 
 ```
 python train.py --model tinyvgg --batch_size 32 --lr 0.001 --num_epochs 10
 ```
 
-You could setup any number of these argument flags in your `train.py` script to suit your needs.
+你可以在你的`train.py`脚本中设置任意数量的这些参数标志，以满足你的需求。
 
-The PyTorch blog post for training state-of-the-art computer vision models uses this style.
+PyTorch博客文章中训练最先进的计算机视觉模型也使用了这种风格。
 
-<img src="https://raw.githubusercontent.com/mrdbourke/pytorch-deep-learning/main/images/05-training-sota-recipe.png" alt="PyTorch training script recipe for training state of the art computer vision models" width=800/>
+<img src="https://raw.githubusercontent.com/mrdbourke/pytorch-deep-learning/main/images/05-training-sota-recipe.png" alt="PyTorch训练脚本配方，用于训练最先进的计算机视觉模型"/>
 
-*PyTorch command line training script recipe for training state-of-the-art computer vision models with 8 GPUs. Source: [PyTorch blog](https://pytorch.org/blog/how-to-train-state-of-the-art-models-using-torchvision-latest-primitives/#the-training-recipe).*
+*使用8个GPU训练最先进的计算机视觉模型的PyTorch命令行训练脚本配方。
+来源：[PyTorch博客](https://pytorch.org/blog/how-to-train-state-of-the-art-models-using-torchvision-latest-primitives/#the-training-recipe)。*
 
-## What we're going to cover
+## 我们将涵盖的内容
 
-The main concept of this section is: **turn useful notebook code cells into reusable Python files.**
+本节的主要概念是：**将实用的笔记本代码单元转换为可重复使用的Python文件。**
 
-Doing this will save us writing the same code over and over again.
+这样做可以避免我们一遍又一遍地编写相同的代码。
 
-There are two notebooks for this section:
+本节有两个笔记本：
 
-1. [**05. Going Modular: Part 1 (cell mode)**](https://github.com/mrdbourke/pytorch-deep-learning/blob/main/going_modular/05_pytorch_going_modular_cell_mode.ipynb) - this notebook is run as a traditional Jupyter Notebook/Google Colab notebook and is a condensed version of [notebook 04](https://www.learnpytorch.io/04_pytorch_custom_datasets/).
-2. [**05. Going Modular: Part 2 (script mode)**](https://github.com/mrdbourke/pytorch-deep-learning/blob/main/going_modular/05_pytorch_going_modular_script_mode.ipynb) - this notebook is the same as number 1 but with added functionality to turn each of the major sections into Python scripts, such as, `data_setup.py` and `train.py`. 
+1. [**05. 模块化：第1部分（单元模式）**](https://github.com/mrdbourke/pytorch-deep-learning/blob/main/going_modular/05_pytorch_going_modular_cell_mode.ipynb) - 这个笔记本以传统的Jupyter Notebook/Google Colab笔记本运行，是[笔记本04](https://www.learnpytorch.io/04_pytorch_custom_datasets/)的浓缩版本。
+2. [**05. 模块化：第2部分（脚本模式）**](https://github.com/mrdbourke/pytorch-deep-learning/blob/main/going_modular/05_pytorch_going_modular_script_mode.ipynb) - 这个笔记本与第1个相同，但增加了将每个主要部分转换为Python脚本的功能，例如`data_setup.py`和`train.py`。
 
-The text in this document focuses on the code cells 05. Going Modular: Part 2 (script mode), the ones with `%%writefile ...` at the top.
+本文档中的文本重点介绍代码单元05. 模块化：第2部分（脚本模式），即顶部带有`%%writefile ...`的单元。
 
-### Why two parts?
+### 为什么分两部分？
 
-Because sometimes the best way to learn something is to see how it *differs* from something else.
+因为有时学习某件事的最佳方式是看它与别的事有何不同。
 
-If you run each notebook side-by-side you'll see how they differ and that's where the key learnings are.
+如果你并排运行每个笔记本，你会看到它们的不同之处，这就是关键的学习点。
 
-<img src="https://raw.githubusercontent.com/mrdbourke/pytorch-deep-learning/main/images/05-notebook-cell-mode-vs-script-mode.png" alt="running cell mode notebook vs a script mode notebook" width=1000/>
+![运行单元模式笔记本与脚本模式笔记本](https://raw.githubusercontent.com/mrdbourke/pytorch-deep-learning/main/images/05-notebook-cell-mode-vs-script-mode.png)
 
-*Running the two notebooks for section 05 side-by-side. You'll notice that the **script mode notebook has extra code cells** to turn code from the cell mode notebook into Python scripts.*
+*并排运行第05节的两本笔记本。你会注意到**脚本模式笔记本有额外的代码单元**，将单元模式笔记本的代码转换为Python脚本。*
 
-### What we're working towards
+### 我们的目标
 
-By the end of this section we want to have two things:
+通过本节的学习，我们希望达到以下两点：
 
-1. The ability to train the model we built in notebook 04 (Food Vision Mini) with one line of code on the command line: `python train.py`.
-2. A directory structure of reusable Python scripts, such as: 
+1. 能够通过命令行中的一行代码训练我们在笔记本04（Food Vision Mini）中构建的模型：`python train.py`。
+2. 一个可重复使用的Python脚本目录结构，例如：
 
 ```
 going_modular/
@@ -152,10 +153,10 @@ going_modular/
             └── sushi/
 ```
 
-### Things to note
+### 注意事项
 
-* **Docstrings** - Writing reproducible and understandable code is important. And with this in mind, each of the functions/classes we'll be putting into scripts has been created with Google's [Python docstring style in mind](https://google.github.io/styleguide/pyguide.html#383-functions-and-methods).
-* **Imports at the top of scripts** - Since all of the Python scripts we're going to create could be considered a small program on their own, all of the scripts require their input modules be imported at the start of the script for example:
+* **文档字符串** - 编写可复现且易于理解的代码至关重要。鉴于此，我们在编写脚本中的每个函数/类时都遵循了 Google 的 [Python 文档字符串风格](https://google.github.io/styleguide/pyguide.html#383-函数和方法)。
+* **脚本顶部导入模块** - 由于我们将要创建的所有 Python 脚本都可以被视为独立的程序，因此所有脚本都需要在其开头导入所需的模块，例如：
 
 ```python
 # Import modules required for train.py
@@ -166,27 +167,27 @@ import data_setup, engine, model_builder, utils
 from torchvision import transforms
 ```
 
-## Where can you get help?
+## 在哪里可以获得帮助？
 
-All of the materials for this course [are available on GitHub](https://github.com/mrdbourke/pytorch-deep-learning).
+本课程的所有材料[都可以在 GitHub 上找到](https://github.com/mrdbourke/pytorch-deep-learning)。
 
-If you run into trouble, you can ask a question on the course [GitHub Discussions page](https://github.com/mrdbourke/pytorch-deep-learning/discussions).
+如果你遇到问题，可以在课程的 [GitHub Discussions 页面](https://github.com/mrdbourke/pytorch-deep-learning/discussions)上提问。
 
-And of course, there's the [PyTorch documentation](https://pytorch.org/docs/stable/index.html) and [PyTorch developer forums](https://discuss.pytorch.org/), a very helpful place for all things PyTorch. 
+当然，还有 [PyTorch 文档](https://pytorch.org/docs/stable/index.html)和 [PyTorch 开发者论坛](https://discuss.pytorch.org/)，这是一个非常有用的 PyTorch 相关资源。
 
-## 0. Cell mode vs. script mode
+## 0. 单元模式 vs. 脚本模式
 
-A cell mode notebook such as [05. Going Modular Part 1 (cell mode)](https://github.com/mrdbourke/pytorch-deep-learning/blob/main/going_modular/05_pytorch_going_modular_cell_mode.ipynb) is a notebook run normally, each cell in the notebook is either code or markdown.
+单元模式笔记本，例如 [05. 模块化第1部分（单元模式）](https://github.com/mrdbourke/pytorch-deep-learning/blob/main/going_modular/05_pytorch_going_modular_cell_mode.ipynb)，是一个正常运行的笔记本，每个单元格要么是代码，要么是 Markdown。
 
-A script mode notebook such as [05. Going Modular Part 2 (script mode)](https://github.com/mrdbourke/pytorch-deep-learning/blob/main/going_modular/05_pytorch_going_modular_script_mode.ipynb) is very similar to a cell mode notebook, however, many of the code cells may be turned into Python scripts.
+脚本模式笔记本，例如 [05. 模块化第2部分（脚本模式）](https://github.com/mrdbourke/pytorch-deep-learning/blob/main/going_modular/05_pytorch_going_modular_script_mode.ipynb)，与单元模式笔记本非常相似，但许多代码单元格可能被转换为 Python 脚本。
 
-> **Note:** You don't *need* to create Python scripts via a notebook, you can create them directly through an IDE (integrated developer environment) such as [VS Code](https://code.visualstudio.com/). Having the script mode notebook as part of this section is just to demonstrate one way of going from notebooks to Python scripts.
+> **注意：** 你*不*需要通过笔记本创建 Python 脚本，你可以直接通过 [VS Code](https://code.visualstudio.com/) 等集成开发环境（IDE）创建它们。将脚本模式笔记本作为本节的一部分只是为了演示从笔记本到 Python 脚本的一种方式。
 
-## 1. Get data
+## 1. 获取数据
 
-Getting the data in each of the 05 notebooks happens the same as in [notebook 04](https://www.learnpytorch.io/04_pytorch_custom_datasets/#1-get-data).
+在每个 05 笔记本中获取数据的方式与 [笔记本 04](https://www.learnpytorch.io/04_pytorch_custom_datasets/#1-get-data) 相同。
 
-A call is made to GitHub via Python's `requests` module to download a `.zip` file and unzip it.
+通过 Python 的 `requests` 模块向 GitHub 发出请求，下载一个 `.zip` 文件并解压。
 
 ```python 
 import os
@@ -220,7 +221,7 @@ with zipfile.ZipFile(data_path / "pizza_steak_sushi.zip", "r") as zip_ref:
 os.remove(data_path / "pizza_steak_sushi.zip")
 ```
 
-This results in having a file called `data` that contains another directory called `pizza_steak_sushi` with images of pizza, steak and sushi in standard image classification format.
+这样就会得到一个名为 `data` 的文件夹，其中包含一个名为 `pizza_steak_sushi` 的目录，里面有披萨、牛排和寿司的图片，格式为标准的图像分类格式。
 
 ```
 data/
@@ -242,13 +243,13 @@ data/
         └── sushi/
 ```
 
-## 2. Create Datasets and DataLoaders (`data_setup.py`)
+## 2. 创建数据集和数据加载器 (`data_setup.py`)
 
-Once we've got data, we can then turn it into PyTorch `Dataset`'s and `DataLoader`'s (one for training data and one for testing data).
+当我们获取数据后，可以将其转换为 PyTorch 的 `Dataset` 和 `DataLoader`（一个用于训练数据，一个用于测试数据）。
 
-We convert the useful `Dataset` and `DataLoader` creation code into a function called `create_dataloaders()`.
+我们将有用的 `Dataset` 和 `DataLoader` 创建代码封装成一个名为 `create_dataloaders()` 的函数。
 
-And we write it to file using the line `%%writefile going_modular/data_setup.py`. 
+并通过 `%%writefile going_modular/data_setup.py` 将其写入文件。
 
 ```py title="data_setup.py"
 %%writefile going_modular/data_setup.py
@@ -319,7 +320,7 @@ def create_dataloaders(
   return train_dataloader, test_dataloader, class_names
 ```
 
-If we'd like to make `DataLoader`'s we can now use the function within `data_setup.py` like so:
+如果我们想要创建`DataLoader`，现在可以像这样使用`data_setup.py`中的函数：
 
 ```python
 # Import data_setup.py
@@ -329,13 +330,13 @@ from going_modular import data_setup
 train_dataloader, test_dataloader, class_names = data_setup.create_dataloaders(...)
 ```
 
-## 3. Making a model (`model_builder.py`)
+## 3. 构建模型 (`model_builder.py`)
 
-Over the past few notebooks (notebook 03 and notebook 04), we've built the TinyVGG model a few times.
+在过去的几个笔记本（笔记本03和笔记本04）中，我们已经多次构建了TinyVGG模型。
 
-So it makes sense to put the model into its file so we can reuse it again and again.
+因此，将模型放入其文件中以便我们可以反复重用是很有意义的。
 
-Let's put our `TinyVGG()` model class into a script with the line `%%writefile going_modular/model_builder.py`:
+让我们将`TinyVGG()`模型类放入一个脚本中，使用行`%%writefile going_modular/model_builder.py`：
 
 ```python title="model_builder.py"
 %%writefile going_modular/model_builder.py
@@ -397,7 +398,8 @@ class TinyVGG(nn.Module):
       # return self.classifier(self.conv_block_2(self.conv_block_1(x))) # <- leverage the benefits of operator fusion
 ```
 
-Now instead of coding the TinyVGG model from scratch every time, we can import it using:
+现在，我们可以使用以下方法导入 TinyVGG 模型，而不是每次都从头开始编写 TinyVGG 模型：
+
 
 ```python
 import torch
@@ -412,20 +414,20 @@ model = model_builder.TinyVGG(input_shape=3,
                               output_shape=len(class_names)).to(device)
 ```
 
-## 4. Creating `train_step()` and `test_step()` functions and `train()` to combine them  
+## 4. 创建 `train_step()` 和 `test_step()` 函数，并用 `train()` 组合它们
 
-We wrote several training functions in [notebook 04](https://www.learnpytorch.io/04_pytorch_custom_datasets/#75-create-train-test-loop-functions):
+我们在 [notebook 04](https://www.learnpytorch.io/04_pytorch_custom_datasets/#75-create-train-test-loop-functions) 中编写了几个训练函数：
 
-1. `train_step()` - takes in a model, a `DataLoader`, a loss function and an optimizer and trains the model on the `DataLoader`.
-2. `test_step()` - takes in a model, a `DataLoader` and a loss function and evaluates the model on the `DataLoader`.
-3. `train()` - performs 1. and 2. together for a given number of epochs and returns a results dictionary.
+1. `train_step()` - 接受一个模型、一个 `DataLoader`、一个损失函数和一个优化器，并在 `DataLoader` 上训练模型。
+2. `test_step()` - 接受一个模型、一个 `DataLoader` 和一个损失函数，并在 `DataLoader` 上评估模型。
+3. `train()` - 针对给定的 epoch 数，执行 1 和 2，并返回一个结果字典。
 
-Since these will be the *engine* of our model training, we can put them all into a Python script called `engine.py` with the line `%%writefile going_modular/engine.py`:
+由于这些将是我们的模型训练的 *引擎*，我们可以将它们全部放入一个名为 `engine.py` 的 Python 脚本中，使用 `%%writefile going_modular/engine.py` 命令：
 
 ```python title="engine.py"
 %%writefile going_modular/engine.py
 """
-Contains functions for training and testing a PyTorch model.
+包含用于训练和测试 PyTorch 模型的函数。
 """
 import torch
 
@@ -437,22 +439,21 @@ def train_step(model: torch.nn.Module,
                loss_fn: torch.nn.Module, 
                optimizer: torch.optim.Optimizer,
                device: torch.device) -> Tuple[float, float]:
-  """Trains a PyTorch model for a single epoch.
+  """训练一个 PyTorch 模型的一个 epoch。
 
-  Turns a target PyTorch model to training mode and then
-  runs through all of the required training steps (forward
-  pass, loss calculation, optimizer step).
+  将目标 PyTorch 模型设置为训练模式，然后
+  执行所有必需的训练步骤（前向传播、损失计算、优化器步骤）。
 
   Args:
-    model: A PyTorch model to be trained.
-    dataloader: A DataLoader instance for the model to be trained on.
-    loss_fn: A PyTorch loss function to minimize.
-    optimizer: A PyTorch optimizer to help minimize the loss function.
-    device: A target device to compute on (e.g. "cuda" or "cpu").
+    model: 要训练的 PyTorch 模型。
+    dataloader: 用于模型训练的 DataLoader 实例。
+    loss_fn: 要最小化的 PyTorch 损失函数。
+    optimizer: 帮助最小化损失函数的 PyTorch 优化器。
+    device: 计算目标设备（例如 "cuda" 或 "cpu"）。
 
   Returns:
-    A tuple of training loss and training accuracy metrics.
-    In the form (train_loss, train_accuracy). For example:
+    一个包含训练损失和训练准确度指标的元组。
+    形式为 (train_loss, train_accuracy)。例如：
     
     (0.1112, 0.8743)
   """
@@ -549,22 +550,21 @@ def train(model: torch.nn.Module,
           loss_fn: torch.nn.Module,
           epochs: int,
           device: torch.device) -> Dict[str, List]:
-  """Trains and tests a PyTorch model.
+  """训练和测试一个 PyTorch 模型。
 
-  Passes a target PyTorch models through train_step() and test_step()
-  functions for a number of epochs, training and testing the model
-  in the same epoch loop.
+  通过 train_step() 和 test_step() 函数对目标 PyTorch 模型进行若干轮次的训练和测试，
+在同一个轮次循环中完成训练和测试。
 
-  Calculates, prints and stores evaluation metrics throughout.
+  在整个过程中计算、打印并存储评估指标。
 
   Args:
-    model: A PyTorch model to be trained and tested.
-    train_dataloader: A DataLoader instance for the model to be trained on.
-    test_dataloader: A DataLoader instance for the model to be tested on.
-    optimizer: A PyTorch optimizer to help minimize the loss function.
-    loss_fn: A PyTorch loss function to calculate loss on both datasets.
-    epochs: An integer indicating how many epochs to train for.
-    device: A target device to compute on (e.g. "cuda" or "cpu").
+    model: 需要训练和测试的 PyTorch 模型。
+    train_dataloader: 用于模型训练的 DataLoader 实例。
+    test_dataloader: 用于模型测试的 DataLoader 实例。
+    optimizer: 帮助最小化损失函数的 PyTorch 优化器。
+    loss_fn: 用于计算两个数据集上损失的 PyTorch 损失函数。
+    epochs: 表示训练轮次的整数。
+    device: 计算目标设备（例如 "cuda" 或 "cpu"）。
 
   Returns:
     A dictionary of training and testing loss as well as training and
@@ -618,7 +618,7 @@ def train(model: torch.nn.Module,
   return results
 ```
 
-Now we've got the `engine.py` script, we can import functions from it via:
+现在我们有了 `engine.py` 脚本，我们可以通过以下方式从中导入函数：
 
 ```python
 # Import engine.py
@@ -628,15 +628,15 @@ from going_modular import engine
 engine.train(...)
 ```
 
-## 5. Creating a function to save the model (`utils.py`)
+## 5. 创建保存模型的函数（`utils.py`）
 
-Often you'll want to save a model whilst it's training or after training.
+在训练过程中或训练后，通常需要保存模型。
 
-Since we've written the code to save a model a few times now in previous notebooks, it makes sense to turn it into a function and save it to file.
+由于我们在之前的笔记本中已经多次编写了保存模型的代码，因此将其转换为函数并保存到文件中是合理的。
 
-It's common practice to store helper functions in a file called `utils.py` (short for utilities).
+将辅助函数存储在名为 `utils.py` 的文件中是一种常见做法（utilities 的缩写）。
 
-Let's save our `save_model()` function to a file called `utils.py` with the line `%%writefile going_modular/utils.py`: 
+让我们将 `save_model()` 函数保存到一个名为 `utils.py` 的文件中，使用命令 `%%writefile going_modular/utils.py`：
 
 ```python title="utils.py"
 %%writefile going_modular/utils.py
@@ -677,7 +677,7 @@ def save_model(model: torch.nn.Module,
              f=model_save_path)
 ```
 
-Now if we wanted to use our `save_model()` function, instead of writing it all over again, we can import it and use it via:
+现在，如果我们想使用 `save_model()` 函数，而不是重新编写一遍，我们可以导入它并通过以下方式使用：
 
 ```python
 # Import utils.py
@@ -689,35 +689,35 @@ save_model(model=...
            model_name=...)
 ```
 
-## 6. Train, evaluate and save the model (`train.py`)
+## 6. 训练、评估并保存模型（`train.py`）
 
-As previously discussed, you'll often come across PyTorch repositories that combine all of their functionality together in a `train.py` file.
+如前所述，你经常会遇到将所有功能整合在一个 `train.py` 文件中的 PyTorch 仓库。
 
-This file is essentially saying "train the model using whatever data is available".
+这个文件本质上是在说“使用任何可用数据训练模型”。
 
-In our `train.py` file, we'll combine all of the functionality of the other Python scripts we've created and use it to train a model.
+在我们的 `train.py` 文件中，我们将结合我们创建的其他 Python 脚本的所有功能，并用它来训练一个模型。
 
-This way we can train a PyTorch model using a single line of code on the command line:
+这样，我们就可以在命令行中使用一行代码来训练一个 PyTorch 模型：
 
 ```
 python train.py
 ```
 
-To create `train.py` we'll go through the following steps:
+为了创建 `train.py`，我们将按照以下步骤进行：
 
-1. Import the various dependencies, namely `torch`, `os`, `torchvision.transforms` and all of the scripts from the `going_modular` directory, `data_setup`, `engine`, `model_builder`, `utils`.
-  * **Note:** Since `train.py` will be *inside* the `going_modular` directory, we can import the other modules via `import ...` rather than `from going_modular import ...`.
-2. Setup various hyperparameters such as batch size, number of epochs, learning rate and number of hidden units (these could be set in the future via [Python's `argparse`](https://docs.python.org/3/library/argparse.html)).
-3. Setup the training and test directories.
-4. Setup device-agnostic code.
-5. Create the necessary data transforms.
-6. Create the DataLoaders using `data_setup.py`.
-7. Create the model using `model_builder.py`.
-8. Setup the loss function and optimizer.
-9. Train the model using `engine.py`.
-10. Save the model using `utils.py`. 
+1. 导入各种依赖项，即 `torch`、`os`、`torchvision.transforms` 以及 `going_modular` 目录中的所有脚本，包括 `data_setup`、`engine`、`model_builder`、`utils`。
+   * **注意：** 由于 `train.py` 将位于 `going_modular` 目录内部，我们可以通过 `import ...` 而不是 `from going_modular import ...` 来导入其他模块。
+2. 设置各种超参数，如批次大小、训练轮数、学习率和隐藏单元数量（这些参数未来可以通过 [Python 的 `argparse`](https://docs.python.org/3/library/argparse.html) 进行设置）。
+3. 设置训练和测试目录。
+4. 设置设备无关代码。
+5. 创建必要的数据转换。
+6. 使用 `data_setup.py` 创建 DataLoader。
+7. 使用 `model_builder.py` 创建模型。
+8. 设置损失函数和优化器。
+9. 使用 `engine.py` 训练模型。
+10. 使用 `utils.py` 保存模型。
 
-And we can create the file from a notebook cell using the line `%%writefile going_modular/train.py`:
+我们可以在笔记本单元格中使用以下命令 `%%writefile going_modular/train.py` 来创建文件:
 
 ```python title="train.py"
 %%writefile going_modular/train.py
@@ -785,52 +785,52 @@ utils.save_model(model=model,
                  model_name="05_going_modular_script_mode_tinyvgg_model.pth")
 ```
 
-Woohoo!
+哇哦！
 
-Now we can train a PyTorch model by running the following line on the command line:
+现在我们可以通过在命令行中运行以下命令来训练一个 PyTorch 模型：
 
 ```
 python train.py
 ```
 
-Doing this will leverage all of the other code scripts we've created.
+这样做将利用我们创建的所有其他代码脚本。
 
-And if we wanted to, we could adjust our `train.py` file to use argument flag inputs with Python's `argparse` module, this would allow us to provide different hyperparameter settings like previously discussed:
+如果我们愿意，我们可以调整 `train.py` 文件，使用 Python 的 `argparse` 模块来处理参数标志输入，这将允许我们提供不同的超参数设置，就像之前讨论的那样：
 
 ```
 python train.py --model MODEL_NAME --batch_size BATCH_SIZE --lr LEARNING_RATE --num_epochs NUM_EPOCHS
 ```
 
-## Exercises
+## 练习
 
-**Resources:**
+**资源：**
 
-* [Exercise template notebook for 05](https://github.com/mrdbourke/pytorch-deep-learning/blob/main/extras/exercises/05_pytorch_going_modular_exercise_template.ipynb)
-* [Example solutions notebook for 05](https://github.com/mrdbourke/pytorch-deep-learning/blob/main/extras/solutions/05_pytorch_going_modular_exercise_solutions.ipynb)
-    * Live coding run through of [solutions notebook for 05 on YouTube](https://youtu.be/ijgFhMK3pp4)
+* [05 练习模板笔记本](https://github.com/mrdbourke/pytorch-deep-learning/blob/main/extras/exercises/05_pytorch_going_modular_exercise_template.ipynb)
+* [05 练习示例解决方案笔记本](https://github.com/mrdbourke/pytorch-deep-learning/blob/main/extras/solutions/05_pytorch_going_modular_exercise_solutions.ipynb)
+    * [YouTube 上的 05 解决方案笔记本实时编码演示](https://youtu.be/ijgFhMK3pp4)
 
-**Exercises:**
+**练习：**
 
-1. Turn the code to get the data (from section 1. Get Data above) into a Python script, such as `get_data.py`.
-    * When you run the script using `python get_data.py` it should check if the data already exists and skip downloading if it does.
-    * If the data download is successful, you should be able to access the `pizza_steak_sushi` images from the `data` directory.
-2. Use [Python's `argparse` module](https://docs.python.org/3/library/argparse.html) to be able to send the `train.py` custom hyperparameter values for training procedures.
-    * Add an argument for using a different:
-        * Training/testing directory
-        * Learning rate
-        * Batch size
-        * Number of epochs to train for
-        * Number of hidden units in the TinyVGG model
-    * Keep the default values for each of the above arguments as what they already are (as in notebook 05).
-    * For example, you should be able to run something similar to the following line to train a TinyVGG model with a learning rate of 0.003 and a batch size of 64 for 20 epochs: `python train.py --learning_rate 0.003 --batch_size 64 --num_epochs 20`.
-    * **Note:** Since `train.py` leverages the other scripts we created in section 05, such as, `model_builder.py`, `utils.py` and `engine.py`, you'll have to make sure they're available to use too. You can find these in the [`going_modular` folder on the course GitHub](https://github.com/mrdbourke/pytorch-deep-learning/tree/main/going_modular/going_modular). 
-3. Create a script to predict (such as `predict.py`) on a target image given a file path with a saved model.
-    * For example, you should be able to run the command `python predict.py some_image.jpeg` and have a trained PyTorch model predict on the image and return its prediction.
-    * To see example prediction code, check out the [predicting on a custom image section in notebook 04](https://www.learnpytorch.io/04_pytorch_custom_datasets/#113-putting-custom-image-prediction-together-building-a-function). 
-    * You may also have to write code to load in a trained model.
+1. 将获取数据的代码（来自上面的第 1 节 获取数据）转换为 Python 脚本，例如 `get_data.py`。
+    * 当你运行脚本 `python get_data.py` 时，它应该检查数据是否已经存在并跳过下载（如果存在）。
+    * 如果数据下载成功，你应该能够从 `data` 目录访问 `pizza_steak_sushi` 图像。
+2. 使用 [Python 的 `argparse` 模块](https://docs.python.org/3/library/argparse.html) 来为训练过程发送 `train.py` 自定义超参数值。
+    * 添加一个用于使用不同的参数：
+        * 训练/测试目录
+        * 学习率
+        * 批量大小
+        * 训练的周期数
+        * TinyVGG 模型中的隐藏单元数
+    * 保持每个参数的默认值为其当前值（如笔记本 05 中所示）。
+    * 例如，你应该能够运行类似于以下命令来训练一个学习率为 0.003 且批量大小为 64 的 TinyVGG 模型，训练 20 个周期：`python train.py --learning_rate 0.003 --batch_size 64 --num_epochs 20`。
+    * **注意：** 由于 `train.py` 利用了我们创建的其他脚本，例如 `model_builder.py`、`utils.py` 和 `engine.py`，你需要确保它们也可用。你可以在课程 GitHub 上的 [`going_modular` 文件夹](https://github.com/mrdbourke/pytorch-deep-learning/tree/main/going_modular/going_modular) 中找到这些脚本。
+3. 创建一个预测脚本（例如 `predict.py`），使用保存的模型对给定文件路径的目标图像进行预测。
+    * 例如，你应该能够运行命令 `python predict.py some_image.jpeg`，并让训练好的 PyTorch 模型对图像进行预测并返回其预测结果。
+    * 要查看示例预测代码，请查看笔记本 04 中的 [对自定义图像进行预测部分](https://www.learnpytorch.io/04_pytorch_custom_datasets/#113-putting-custom-image-prediction-together-building-a-function)。
+    * 你可能还需要编写代码来加载训练好的模型。
 
-## Extra-curriculum
+## 额外课程
 
-* To learn more about structuring a Python project, check out Real Python's guide on [Python Application Layouts](https://realpython.com/python-application-layouts/). 
-* For ideas on styling your PyTorch code, check out the [PyTorch style guide by Igor Susmelj](https://github.com/IgorSusmelj/pytorch-styleguide#recommended-code-structure-for-training-your-model) (much of styling in this chapter is based off this guide + various similar PyTorch repositories).
-* For an example `train.py` script and various other PyTorch scripts written by the PyTorch team to train state-of-the-art image classification models, check out their [`classification` repository on GitHub](https://github.com/pytorch/vision/tree/main/references/classification). 
+* 要了解有关构建 Python 项目的更多信息，请查看 Real Python 的指南 [Python 应用程序布局](https://realpython.com/python-application-layouts/)。
+* 要了解有关样式化 PyTorch 代码的想法，请查看 [Igor Susmelj 的 PyTorch 样式指南](https://github.com/IgorSusmelj/pytorch-styleguide#recommended-code-structure-for-training-your-model)（本章中的许多样式基于此指南 + 各种类似的 PyTorch 仓库）。
+* 要查看由 PyTorch 团队编写的 `train.py` 脚本和其他各种 PyTorch 脚本，以训练最先进的图像分类模型，请查看他们的 [GitHub 上的 `classification` 仓库](https://github.com/pytorch/vision/tree/main/references/classification)。

@@ -1,5 +1,5 @@
-All exercise notebooks for the PyTorch deep learning teaching materials. 
+所有PyTorch深度学习教学材料的练习笔记本。
 
-You can see example solutions in the [solutions folder](https://github.com/mrdbourke/pytorch-deep-learning/tree/main/extras/solutions) (but you should try the exercises yourself first!).
+你可以在[解决方案文件夹](https://github.com/mrdbourke/pytorch-deep-learning/tree/main/extras/solutions)中查看示例解决方案（但你应该先自己尝试练习！）。
 
-**Note:** There may be more than one way of creating a solution for each exercise, this is not a bug, give it a go and see what happens.
+**注意：** 每个练习可能有不止一种解决方案，这不是错误，尝试一下看看会发生什么。

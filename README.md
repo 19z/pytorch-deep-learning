@@ -1,8 +1,13 @@
-# Learn PyTorch for Deep Learning
 
-Welcome to the [Zero to Mastery Learn PyTorch for Deep Learning course](https://dbourke.link/ZTMPyTorch), the second best place to learn PyTorch on the internet (the first being the [PyTorch documentation](https://pytorch.org/docs/stable/index.html)).
+你正在看到的是 [mrdbourke/pytorch-deep-learning](https://github.com/mrdbourke/pytorch-deep-learning/) 的中文翻译版本。
 
-* **Update April 2023:** New [tutorial for PyTorch 2.0](https://www.learnpytorch.io/pytorch_2_intro/) is live! And because PyTorch 2.0 is an additive (new features) and backward-compatible release, all previous course materials will *still* work with PyTorch 2.0.
+你可以访问 [这里](https://19z.github.io/pytorch-deep-learning/) 查看翻译后的站点。
+
+# 从零到精通：PyTorch 深度学习训练营
+
+欢迎来到 [从零到精通：PyTorch 深度学习训练营](https://dbourke.link/ZTMPyTorch)，这是互联网上学习 PyTorch 的第二佳场所（第一佳场所是 [PyTorch 官方文档](https://pytorch.org/docs/stable/index.html)）。
+
+* **2023年4月更新：** 新的 [PyTorch 2.0 教程](https://www.learnpytorch.io/pytorch_2_intro/) 已上线！由于 PyTorch 2.0 是一个新增功能且向后兼容的版本，所有之前的课程材料仍将与 PyTorch 2.0 兼容。
 
 <div align="center">
     <a href="https://learnpytorch.io">
@@ -10,122 +15,128 @@ Welcome to the [Zero to Mastery Learn PyTorch for Deep Learning course](https://
     </a>
 </div>
 
-## Contents of this page
+## 本页内容
 
-* [Course materials/outline](https://github.com/mrdbourke/pytorch-deep-learning#course-materialsoutline)
-* [About this course](https://github.com/mrdbourke/pytorch-deep-learning#about-this-course)
-* [Status](https://github.com/mrdbourke/pytorch-deep-learning#status) (the progress of the course creation)
-* [Log](https://github.com/mrdbourke/pytorch-deep-learning#log) (a log of the course material creation process)
+* [课程材料/大纲](#course-materialsoutline)
+* [关于本课程](#about-this-course)
+* [状态](#status)（课程制作进度）
+* [日志](#log)（课程材料制作过程的日志）
 
-## Course materials/outline
+## 课程材料/大纲
 
-* 📖 **Online book version:** All of course materials are available in a readable online book at [learnpytorch.io](https://learnpytorch.io).
-* 🎥 **First five sections on YouTube:** Learn Pytorch in a day by watching the [first 25-hours of material](https://youtu.be/Z_ikDlimN6A).
-* 🔬 **Course focus:** code, code, code, experiment, experiment, experiment.
-* 🏃‍♂️ **Teaching style:** [https://sive.rs/kimo](https://sive.rs/kimo).
-* 🤔 **Ask a question:** See the [GitHub Discussions page](https://github.com/mrdbourke/pytorch-deep-learning/discussions) for existing questions/ask your own.
+* 📖 **在线书籍版本：** 所有课程材料均可在线阅读，访问 [learnpytorch.io](https://learnpytorch.io) 。
+* 🎥 **前五部分在 YouTube 上：** 通过观看 [前 25 小时的内容](https://youtu.be/Z_ikDlimN6A)，一天学会 PyTorch。
+* 🔬 **课程重点：** 代码、代码、代码，实验、实验、实验。
+* 🏃‍♂️ **教学风格：** [https://sive.rs/kimo](https://sive.rs/kimo)。
+* 🤔 **提问：** 查看 [GitHub 讨论页面](https://github.com/mrdbourke/pytorch-deep-learning/discussions) 中的现有问题或提出您自己的问题。
 
-| **Section** | **What does it cover?** | **Exercises & Extra-curriculum** | **Slides** |
+
+| **章节** | **内容概述** | **练习 & 额外课程** | **幻灯片** |
 | ----- | ----- | ----- | ----- |
-| [00 - PyTorch Fundamentals](https://www.learnpytorch.io/00_pytorch_fundamentals/) | Many fundamental PyTorch operations used for deep learning and neural networks. | [Go to exercises & extra-curriculum](https://www.learnpytorch.io/00_pytorch_fundamentals/#exercises) | [Go to slides](https://github.com/mrdbourke/pytorch-deep-learning/blob/main/slides/00_pytorch_and_deep_learning_fundamentals.pdf) |
-| [01 - PyTorch Workflow](https://www.learnpytorch.io/01_pytorch_workflow/) | Provides an outline for approaching deep learning problems and building neural networks with PyTorch. | [Go to exercises & extra-curriculum](https://www.learnpytorch.io/01_pytorch_workflow/#exercises) | [Go to slides](https://github.com/mrdbourke/pytorch-deep-learning/blob/main/slides/01_pytorch_workflow.pdf) |
-| [02 - PyTorch Neural Network Classification](https://www.learnpytorch.io/02_pytorch_classification/) | Uses the PyTorch workflow from 01 to go through a neural network classification problem. | [Go to exercises & extra-curriculum](https://www.learnpytorch.io/02_pytorch_classification/#exercises) | [Go to slides](https://github.com/mrdbourke/pytorch-deep-learning/blob/main/slides/02_pytorch_classification.pdf) |
-| [03 - PyTorch Computer Vision](https://www.learnpytorch.io/03_pytorch_computer_vision/) | Let's see how PyTorch can be used for computer vision problems using the same workflow from 01 & 02. | [Go to exercises & extra-curriculum](https://www.learnpytorch.io/03_pytorch_computer_vision/#exercises) | [Go to slides](https://github.com/mrdbourke/pytorch-deep-learning/blob/main/slides/03_pytorch_computer_vision.pdf) |
-| [04 - PyTorch Custom Datasets](https://www.learnpytorch.io/04_pytorch_custom_datasets/) | How do you load a custom dataset into PyTorch? Also we'll be laying the foundations in this notebook for our modular code (covered in 05). | [Go to exercises & extra-curriculum](https://www.learnpytorch.io/04_pytorch_custom_datasets/#exercises) | [Go to slides](https://github.com/mrdbourke/pytorch-deep-learning/blob/main/slides/04_pytorch_custom_datasets.pdf) |
-| [05 - PyTorch Going Modular](https://www.learnpytorch.io/05_pytorch_going_modular/) | PyTorch is designed to be modular, let's turn what we've created into a series of Python scripts (this is how you'll often find PyTorch code in the wild). | [Go to exercises & extra-curriculum](https://www.learnpytorch.io/05_pytorch_going_modular/#exercises) | [Go to slides](https://github.com/mrdbourke/pytorch-deep-learning/blob/main/slides/05_pytorch_going_modular.pdf) |
-| [06 - PyTorch Transfer Learning](https://www.learnpytorch.io/06_pytorch_transfer_learning/) | Let's take a well performing pre-trained model and adjust it to one of our own problems. | [Go to exercises & extra-curriculum](https://www.learnpytorch.io/06_pytorch_transfer_learning/#exercises) | [Go to slides](https://github.com/mrdbourke/pytorch-deep-learning/blob/main/slides/06_pytorch_transfer_learning.pdf) |
-| [07 - Milestone Project 1: PyTorch Experiment Tracking](https://www.learnpytorch.io/07_pytorch_experiment_tracking/) | We've built a bunch of models... wouldn't it be good to track how they're all going? | [Go to exercises & extra-curriculum](https://www.learnpytorch.io/07_pytorch_experiment_tracking/#exercises) | [Go to slides](https://github.com/mrdbourke/pytorch-deep-learning/blob/main/slides/07_pytorch_experiment_tracking.pdf) |
-| [08 - Milestone Project 2: PyTorch Paper Replicating](https://www.learnpytorch.io/08_pytorch_paper_replicating/) | PyTorch is the most popular deep learning framework for machine learning research, let's see why by replicating a machine learning paper. | [Go to exercises & extra-curriculum](https://www.learnpytorch.io/08_pytorch_paper_replicating/#exercises) | [Go to slides](https://github.com/mrdbourke/pytorch-deep-learning/blob/main/slides/08_pytorch_paper_replicating.pdf) |
-| [09 - Milestone Project 3: Model Deployment](https://www.learnpytorch.io/09_pytorch_model_deployment/) | So we've built a working PyTorch model... how do we get it in the hands of others? Hint: deploy it to the internet. | [Go to exercises & extra-curriculum](https://www.learnpytorch.io/09_pytorch_model_deployment/#exercises) | [Go to slides](https://github.com/mrdbourke/pytorch-deep-learning/blob/main/slides/09_pytorch_model_deployment.pdf) |
-| [PyTorch Extra Resources](https://www.learnpytorch.io/pytorch_extra_resources/) | This course covers a large amount of PyTorch and deep learning but the field of machine learning is vast, inside here you'll find recommended books and resources for: PyTorch and deep learning, ML engineering, NLP (natural language processing), time series data, where to find datasets and more. | - | - |
-| [PyTorch Cheatsheet](https://www.learnpytorch.io/pytorch_cheatsheet/) | A very quick overview of some of the main features of PyTorch plus links to various resources where more can be found in the course and in the PyTorch documentation. | - | - |
-| [A Quick PyTorch 2.0 Tutorial](https://www.learnpytorch.io/pytorch_2_intro/) | A fasssssst introduction to PyTorch 2.0, what's new and how to get started along with resources to learn more. | - | - |
+| [00 - PyTorch 基础](https://www.learnpytorch.io/00_pytorch_fundamentals/) | 深度学习和神经网络中使用的许多基本 PyTorch 操作。 | [前往练习 & 额外课程](https://www.learnpytorch.io/00_pytorch_fundamentals/#exercises) | [前往幻灯片](https://github.com/mrdbourke/pytorch-deep-learning/blob/main/slides/00_pytorch_and_deep_learning_fundamentals.pdf) |
+| [01 - PyTorch 工作流程](https://www.learnpytorch.io/01_pytorch_workflow/) | 提供解决深度学习问题和使用 PyTorch 构建神经网络的框架。 | [前往练习 & 额外课程](https://www.learnpytorch.io/01_pytorch_workflow/#exercises) | [前往幻灯片](https://github.com/mrdbourke/pytorch-deep-learning/blob/main/slides/01_pytorch_workflow.pdf) |
+| [02 - PyTorch 神经网络分类](https://www.learnpytorch.io/02_pytorch_classification/) | 使用 01 章节的 PyTorch 工作流程解决神经网络分类问题。 | [前往练习 & 额外课程](https://www.learnpytorch.io/02_pytorch_classification/#exercises) | [前往幻灯片](https://github.com/mrdbourke/pytorch-deep-learning/blob/main/slides/02_pytorch_classification.pdf) |
+| [03 - PyTorch 计算机视觉](https://www.learnpytorch.io/03_pytorch_computer_vision/) | 看看如何使用 01 & 02 章节的工作流程解决计算机视觉问题。 | [前往练习 & 额外课程](https://www.learnpytorch.io/03_pytorch_computer_vision/#exercises) | [前往幻灯片](https://github.com/mrdbourke/pytorch-deep-learning/blob/main/slides/03_pytorch_computer_vision.pdf) |
+| [04 - PyTorch 自定义数据集](https://www.learnpytorch.io/04_pytorch_custom_datasets/) | 如何将自定义数据集加载到 PyTorch 中？本章节还将为我们的模块化代码（在 05 章节中介绍）奠定基础。 | [前往练习 & 额外课程](https://www.learnpytorch.io/04_pytorch_custom_datasets/#exercises) | [前往幻灯片](https://github.com/mrdbourke/pytorch-deep-learning/blob/main/slides/04_pytorch_custom_datasets.pdf) |
+| [05 - PyTorch 模块化](https://www.learnpytorch.io/05_pytorch_going_modular/) | PyTorch 设计为模块化，让我们将创建的内容转换为一系列 Python 脚本（这是您在野外经常看到的 PyTorch 代码）。 | [前往练习 & 额外课程](https://www.learnpytorch.io/05_pytorch_going_modular/#exercises) | [前往幻灯片](https://github.com/mrdbourke/pytorch-deep-learning/blob/main/slides/05_pytorch_going_modular.pdf) |
+| [06 - PyTorch 迁移学习](https://www.learnpytorch.io/06_pytorch_transfer_learning/) | 让我们采用一个表现良好的预训练模型并将其调整为我们自己的问题。 | [前往练习 & 额外课程](https://www.learnpytorch.io/06_pytorch_transfer_learning/#exercises) | [前往幻灯片](https://github.com/mrdbourke/pytorch-deep-learning/blob/main/slides/06_pytorch_transfer_learning.pdf) |
+| [07 - 里程碑项目 1：PyTorch 实验跟踪](https://www.learnpytorch.io/07_pytorch_experiment_tracking/) | 我们已经构建了许多模型...跟踪它们的进展不是很好吗？ | [前往练习 & 额外课程](https://www.learnpytorch.io/07_pytorch_experiment_tracking/#exercises) | [前往幻灯片](https://github.com/mrdbourke/pytorch-deep-learning/blob/main/slides/07_pytorch_experiment_tracking.pdf) |
+| [08 - 里程碑项目 2：PyTorch 论文复现](https://www.learnpytorch.io/08_pytorch_paper_replicating/) | PyTorch 是机器学习研究中最受欢迎的深度学习框架，让我们通过复现一篇机器学习论文来看看为什么。 | [前往练习 & 额外课程](https://www.learnpytorch.io/08_pytorch_paper_replicating/#exercises) | [前往幻灯片](https://github.com/mrdbourke/pytorch-deep-learning/blob/main/slides/08_pytorch_paper_replicating.pdf) |
+| [09 - 里程碑项目 3：模型部署](https://www.learnpytorch.io/09_pytorch_model_deployment/) | 我们已经构建了一个可工作的 PyTorch 模型...如何让其他人使用它？提示：将其部署到互联网上。 | [前往练习 & 额外课程](https://www.learnpytorch.io/09_pytorch_model_deployment/#exercises) | [前往幻灯片](https://github.com/mrdbourke/pytorch-deep-learning/blob/main/slides/09_pytorch_model_deployment.pdf) |
+| [PyTorch 额外资源](https://www.learnpytorch.io/pytorch_extra_resources/) | 本课程涵盖了大量的 PyTorch 和深度学习，但机器学习领域广阔，在这里您将找到推荐的书籍和资源：PyTorch 和深度学习，ML 工程，NLP（自然语言处理），时间序列数据，如何找到数据集等。 | - | - |
+| [PyTorch 速查表](https://www.learnpytorch.io/pytorch_cheatsheet/) | 对 PyTorch 的一些主要功能进行快速概览，并附上课程和 PyTorch 文档中更多资源的链接。 | - | - |
+| [PyTorch 三大常见错误](https://www.learnpytorch.io/pytorch_most_common_errors/) | 概述 PyTorch 中最常见的三个错误（形状、设备和数据类型错误），它们是如何发生的以及如何修复它们。 | - | - |
+| [快速 PyTorch 2.0 教程](https://www.learnpytorch.io/pytorch_2_intro/) | 对 PyTorch 2.0 的快速介绍，新功能以及如何开始，并附上更多学习资源的链接。 | - | - |
 
-## Status
+## 状态
 
-All materials completed and videos published on Zero to Mastery!
+所有材料已完成，视频已发布在Zero to Mastery上！
 
-See the project page for work-in-progress board - https://github.com/users/mrdbourke/projects/1 
+有关正在进行的工作板，请参见项目页面 - https://github.com/users/mrdbourke/projects/1
 
-* **Total video count:** 321
-* **Done skeleton code for:** 00, 01, 02, 03, 04, 05, 06, 07, 08, 09
-* **Done annotations (text) for:** 00, 01, 02, 03, 04, 05, 06, 07, 08, 09
-* **Done images for:** 00, 01, 02, 03, 04, 05, 06, 07, 08, 09
-* **Done keynotes for:** 00, 01, 02, 03, 04, 05, 06, 07, 08, 09
-* **Done exercises and solutions for:** 00, 01, 02, 03, 04, 05, 06, 07, 08, 09
+* **总视频数：** 321
+* **已完成骨架代码：** 00, 01, 02, 03, 04, 05, 06, 07, 08, 09
+* **已完成注释（文本）：** 00, 01, 02, 03, 04, 05, 06, 07, 08, 09
+* **已完成图片：** 00, 01, 02, 03, 04, 05, 06, 07, 08, 09
+* **已完成演示文稿：** 00, 01, 02, 03, 04, 05, 06, 07, 08, 09
+* **已完成练习和解答：** 00, 01, 02, 03, 04, 05, 06, 07, 08, 09
 
-See the [log](https://github.com/mrdbourke/pytorch-deep-learning#log) for almost daily updates.
+有关几乎每日更新，请参见[日志](https://github.com/mrdbourke/pytorch-deep-learning#log)。
 
-## About this course
 
-### Who is this course for?
+## 关于本课程
 
-**You:** Are a beginner in the field of machine learning or deep learning and would like to learn PyTorch.
+### 本课程适合谁？
 
-**This course:** Teaches you PyTorch and many machine learning concepts in a hands-on, code-first way.
+**你：** 是机器学习或深度学习领域的新手，希望学习 PyTorch。
 
-If you already have 1-year+ experience in machine learning, this course may help but it is specifically designed to be beginner-friendly.
+**本课程：** 以实践和代码优先的方式教授你 PyTorch 和许多机器学习概念。
 
-### What are the prerequisites?
+如果你已经有 1 年以上的机器学习经验，本课程可能会有所帮助，但它特别设计为适合初学者。
 
-1. 3-6 months coding Python.
-2. At least one beginner machine learning course (however this might be able to be skipped, resources are linked for many different topics).
-3. Experience using Jupyter Notebooks or Google Colab (though you can pick this up as we go along).
-4. A willingness to learn (most important).
+### 先决条件是什么？
 
-For 1 & 2, I'd recommend the [Zero to Mastery Data Science and Machine Learning Bootcamp](https://dbourke.link/ZTMMLcourse), it'll teach you the fundamentals of machine learning and Python (I'm biased though, I also teach that course).
+1. 3-6 个月的 Python 编程经验。
+2. 至少完成一门机器学习入门课程（尽管这可能可以跳过，我们会提供许多不同主题的资源链接）。
+3. 使用过 Jupyter Notebooks 或 Google Colab 的经验（尽管你可以边学边掌握）。
+4. 学习的意愿（最重要）。
 
-### How is the course taught?
+对于 1 和 2，我推荐 [Zero to Mastery 数据科学与机器学习训练营](https://dbourke.link/ZTMMLcourse)，它将教你机器学习和 Python 的基础知识（我是偏见的，我也教授那门课程）。
 
-All of the course materials are available for free in an online book at [learnpytorch.io](https://learnpytorch.io). If you like to read, I'd recommend going through the resources there.
+### 课程是如何教授的？
 
-If you prefer to learn via video, the course is also taught in apprenticeship-style format, meaning I write PyTorch code, you write PyTorch code.
+所有的课程材料都可以在[learnpytorch.io](https://learnpytorch.io)的在线书籍中免费获取。如果你喜欢阅读，我建议你通过那里的资源进行学习。
 
-There's a reason the course motto's include *if in doubt, run the code* and *experiment, experiment, experiment!*.
+如果你更喜欢通过视频学习，课程也采用学徒式教学，即我编写PyTorch代码，你编写PyTorch代码。
 
-My whole goal is to help you to do one thing: learn machine learning by writing PyTorch code.
+课程格言包括“如果有疑问，运行代码”和“实验，实验，再实验！”是有原因的。
 
-The code is all written via [Google Colab Notebooks](https://colab.research.google.com) (you could also use Jupyter Notebooks), an incredible free resource to experiment with machine learning.
+我的全部目标就是帮助你做一件事：通过编写PyTorch代码来学习机器学习。
 
-### What will I get if I finish the course?
+所有的代码都是通过[Google Colab Notebooks](https://colab.research.google.com)（你也可以使用Jupyter Notebooks）编写的，这是一个实验机器学习的绝佳免费资源。
 
-There's certificates and all that jazz if you go through the videos.
+### 完成课程后我会得到什么？
 
-But certificates are meh.
+如果你通过视频学习，会有证书和其他奖励。
 
-You can consider this course a machine learning momentum builder.
+但证书也就那样。
 
-By the end, you'll have written hundreds of lines of PyTorch code.
+你可以将这门课程视为机器学习的动力助推器。
 
-And will have been exposed to many of the most important concepts in machine learning.
+到课程结束时，你将编写数百行PyTorch代码。
 
-So when you go to build your own machine learning projects or inspect a public machine learning project made with PyTorch, it'll feel familiar and if it doesn't, at least you'll know where to look.
+并且将接触到许多机器学习中最重要的概念。
 
-### What will I build in the course?
+因此，当你构建自己的机器学习项目或检查使用PyTorch构建的公共机器学习项目时，会感到熟悉；如果不熟悉，至少你知道该去哪里查找。
 
-We start with the barebone fundamentals of PyTorch and machine learning, so even if you're new to machine learning you'll be caught up to speed.
+### 本课程我将构建什么？
 
-Then we’ll explore more advanced areas including PyTorch neural network classification, PyTorch workflows, computer vision, custom datasets, experiment tracking, model deployment, and my personal favourite: transfer learning, a powerful technique for taking what one machine learning model has learned on another problem and applying it to your own!
+我们从 PyTorch 和机器学习的基础知识开始，即使你是机器学习的新手，也能跟上进度。
 
-Along the way, you’ll build three milestone projects surrounding an overarching project called FoodVision, a neural network computer vision model to classify images of food. 
+然后，我们将探索更高级的领域，包括 PyTorch 神经网络分类、PyTorch 工作流程、计算机视觉、自定义数据集、实验跟踪、模型部署，以及我个人最喜欢的：迁移学习，这是一种强大的技术，可以将一个机器学习模型在另一个问题上学习到的知识应用到你自己的问题上！
 
-These milestone projects will help you practice using PyTorch to cover important machine learning concepts and create a portfolio you can show employers and say "here's what I've done".
+在此过程中，你将围绕一个名为 FoodVision 的总体项目构建三个里程碑项目，这是一个用于分类食物图像的神经网络计算机视觉模型。
 
-### How do I get started?
+这些里程碑项目将帮助你练习使用 PyTorch 涵盖重要的机器学习概念，并创建一个你可以向雇主展示的作品集，并说“这是我所做的”。
 
-You can read the materials on any device but this course is best viewed and coded along within a desktop browser.
+### 如何开始？
 
-The course uses a free tool called Google Colab. If you've got no experience with it, I'd go through the free [Introduction to Google Colab tutorial](https://colab.research.google.com/notebooks/basic_features_overview.ipynb) and then come back here.
+你可以在任何设备上阅读材料，但本课程最好在桌面浏览器中查看和编写代码。
 
-To start:
+本课程使用一个名为 Google Colab 的免费工具。如果你没有使用经验，我建议你先阅读免费的 [Google Colab 入门教程](https://colab.research.google.com/notebooks/basic_features_overview.ipynb)，然后再回来。
 
-1. Click on one of the notebook or section links above like "[00. PyTorch Fundamentals](https://www.learnpytorch.io/00_pytorch_fundamentals/)". 
-2. Click the "Open in Colab" button up the top.
-3. Press SHIFT+Enter a few times and see what happens.
+开始方法：
 
-### My question isn't answered 
+1. 点击上面的笔记本或章节链接，例如“[00. PyTorch 基础](https://www.learnpytorch.io/00_pytorch_fundamentals/)”。
+2. 点击顶部的“Open in Colab”按钮。
+3. 按几次 SHIFT+Enter 并观察发生了什么。
 
-Please leave a [discussion](https://github.com/mrdbourke/pytorch-deep-learning/discussions) or send me an email directly: daniel (at) mrdbourke (dot) com.
+
+### 我的问题未得到解答
+
+请在[讨论区](https://github.com/mrdbourke/pytorch-deep-learning/discussions)留言或直接给我发邮件：daniel (at) mrdbourke (dot) com。
+
+
 
 ## Log
 
@@ -135,10 +146,11 @@ Almost daily updates of what's happening.
 * 13 Apr 2023 - update PyTorch 2.0 notebook
 * 30 Mar 2023 - update PyTorch 2.0 notebook with more info/clean code
 * 23 Mar 2023 - upgrade PyTorch 2.0 tutorial with annotations and images
-* 13 Mar 2023 - add starter code for PyTorch 2.0 tutorial 
-* 18 Nov 2022 - add a reference for 3 most common errors in PyTorch + links to course sections for more: https://www.learnpytorch.io/pytorch_most_common_errors/ 
-* 9 Nov 2022 - add PyTorch cheatsheet for a very quick overview of the main features of PyTorch + links to course sections: https://www.learnpytorch.io/pytorch_cheatsheet/ 
-* 9 Nov 2022 - full course materials (300+ videos) are now live on Udemy! You can sign up here: https://www.udemy.com/course/pytorch-for-deep-learning/?couponCode=ZTMGOODIES7 (launch deal code valid for 3-4 days from this line)
+* 13 Mar 2023 - add starter code for PyTorch 2.0 tutorial
+* 18 Nov 2022 - add a reference for 3 most common errors in PyTorch + links to course sections for more: https://www.learnpytorch.io/pytorch_most_common_errors/
+* 9 Nov 2022 - add PyTorch cheatsheet for a very quick overview of the main features of PyTorch + links to course sections: https://www.learnpytorch.io/pytorch_cheatsheet/
+* 9 Nov 2022 - full course materials (300+ videos) are now live on Udemy! You can sign up here: https://www.udemy.com/course/pytorch-for-deep-learning/?couponCode=ZTMGOODIES7 (launch deal code valid
+  for 3-4 days from this line)
 * 4 Nov 2022 - add a notebook for PyTorch Cheatsheet in `extras/` (a simple overview of many of the most important functionality of PyTorch)
 * 2 Oct 2022 - all videos for section 08 and 09 published (100+ videos for the last two sections)!
 * 30 Aug 2022 - recorded 15 videos for 09, total videos: 321, finished section 09 videos!!!! ... even bigger than 08!!
@@ -150,16 +162,16 @@ Almost daily updates of what's happening.
 * 24 Aug 2022 - add annotations to 09, main takeaways, exercises and extra-curriculum done
 * 23 Aug 2022 - add annotations to 09, add plenty of images/slides
 * 22 Aug 2022 - add annotations to 09, start working on slides/images
-* 20 Aug 2022 - add annotations to 09 
+* 20 Aug 2022 - add annotations to 09
 * 19 Aug 2022 - add annotations to 09, check out the awesome demos!
-* 18 Aug 2022 - add annotations to 09 
+* 18 Aug 2022 - add annotations to 09
 * 17 Aug 2022 - add annotations to 09
 * 16 Aug 2022 - add annotations to 09
 * 15 Aug 2022 - add annotations to 09
 * 13 Aug 2022 - add annotations to 09
 * 12 Aug 2022 - add demo files for notebook 09 to `demos/`, start annotating notebook 09 with explainer text
 * 11 Aug 2022 - finish skeleton code for notebook 09, course finishes deploying 2x models, one for FoodVision Mini & one for (secret)
-* 10 Aug 2022 - add section for PyTorch Extra Resources (places to learn more about PyTorch/deep learning): https://www.learnpytorch.io/pytorch_extra_resources/ 
+* 10 Aug 2022 - add section for PyTorch Extra Resources (places to learn more about PyTorch/deep learning): https://www.learnpytorch.io/pytorch_extra_resources/
 * 09 Aug 2022 - add more skeleton code to notebook 09
 * 08 Aug 2022 - create draft notebook for 09, end goal to deploy FoodVision Mini model and make it publically accessible
 * 05 Aug 2022 - recorded 11 videos for 08, total videos: 263, section 08 videos finished!... the biggest section so far
@@ -171,19 +183,19 @@ Almost daily updates of what's happening.
 * 28 July 2022 - add slides for 08
 * 27 July 2022 - cleanup much of 08, start on slides for 08, exercises and extra-curriculum next
 * 26 July 2022 - add annotations and images for 08
-* 25 July 2022 - add annotations for 08 
-* 24 July 2022 - launched first half of course (notebooks 00-04) in a single video (25+ hours!!!) on YouTube: https://youtu.be/Z_ikDlimN6A 
+* 25 July 2022 - add annotations for 08
+* 24 July 2022 - launched first half of course (notebooks 00-04) in a single video (25+ hours!!!) on YouTube: https://youtu.be/Z_ikDlimN6A
 * 21 July 2022 - add annotations and images for 08
-* 20 July 2022 - add annotations and images for 08, getting so close! this is an epic section 
+* 20 July 2022 - add annotations and images for 08, getting so close! this is an epic section
 * 19 July 2022 - add annotations and images for 08
-* 15 July 2022 - add annotations and images for 08 
+* 15 July 2022 - add annotations and images for 08
 * 14 July 2022 - add annotations for 08
-* 12 July 2022 - add annotations for 08, woo woo this is bigggg section! 
-* 11 July 2022 - add annotations for 08 
+* 12 July 2022 - add annotations for 08, woo woo this is bigggg section!
+* 11 July 2022 - add annotations for 08
 * 9 July 2022 - add annotations for 08
 * 8 July 2022 - add a bunch of annotations to 08
-* 6 July 2022 - course launched on ZTM Academy with videos for sections 00-07! 🚀 - https://dbourke.link/ZTMPyTorch 
-* 1 July 2022 - add annotations and images for 08 
+* 6 July 2022 - course launched on ZTM Academy with videos for sections 00-07! 🚀 - https://dbourke.link/ZTMPyTorch
+* 1 July 2022 - add annotations and images for 08
 * 30 June 2022 - add annotations for 08
 * 28 June 2022 - recorded 11 videos for section 07, total video count 213, all videos for section 07 complete!
 * 27 June 2022 - recorded 11 videos for section 07, total video count 202
@@ -198,19 +210,19 @@ Almost daily updates of what's happening.
 * 08 June 2022 - adapt 06 v2 for `torchvision` v0.13 (this will replace 06 v1 when `torchvision=0.13` is released)
 * 07 June 2022 - create notebook 06 v2 for upcoming `torchvision` v0.13 update (new transfer learning methods)
 * 04 June 2022 - add annotations for 07
-* 03 June 2022 - huuuuuuge amount of annotations added to 07 
+* 03 June 2022 - huuuuuuge amount of annotations added to 07
 * 31 May 2022 - add a bunch of annotations for 07, make code runnable end-to-end
 * 30 May 2022 - record 4 videos for 06, finished section 06, onto section 07, total videos 186
 * 28 May 2022 - record 10 videos for 06, total videos 182
 * 24 May 2022 - add solutions and exercises for 06
-* 23 May 2022 - finished annotations and images for 06, time to do exercises and solutions 
+* 23 May 2022 - finished annotations and images for 06, time to do exercises and solutions
 * 22 May 2202 - add plenty of images to 06
 * 18 May 2022 - add plenty of annotations to 06
 * 17 May 2022 - added a bunch of annotations for section 06
 * 16 May 2022 - recorded 10 videos for section 05, finish videos for section 05 ✅
 * 12 May 2022 - added exercises and solutions for 05
 * 11 May 2022 - clean up part 1 and part 2 notebooks for 05, make slides for 05, start on exercises and solutions for 05
-* 10 May 2022 - huuuuge updates to the 05 section, see the website, it looks pretty: https://www.learnpytorch.io/05_pytorch_going_modular/ 
+* 10 May 2022 - huuuuge updates to the 05 section, see the website, it looks pretty: https://www.learnpytorch.io/05_pytorch_going_modular/
 * 09 May 2022 - add a bunch of materials for 05, cleanup docs
 * 08 May 2022 - add a bunch of materials for 05
 * 06 May 2022 - continue making materials for 05
@@ -220,7 +232,7 @@ Almost daily updates of what's happening.
 * 26 Apr 2022 - recorded 10 videos for 04
 * 25 Apr 2022 - recorded 11 videos for 04
 * 24 Apr 2022 - prepared slides for 04
-* 23 Apr 2022 - recorded 6 videos for 03, finished videos for 03, now to 04 
+* 23 Apr 2022 - recorded 6 videos for 03, finished videos for 03, now to 04
 * 22 Apr 2022 - recorded 5 videos for 03
 * 21 Apr 2022 - recorded 9 videos for 03
 * 20 Apr 2022 - recorded 3 videos for 03
@@ -242,7 +254,7 @@ Almost daily updates of what's happening.
 * 22 Mar 2022 - add images for 03
 * 20 Mar 2022 - add more annotations for 03
 * 18 Mar 2022 - add more annotations for 03
-* 17 Mar 2022 - add more annotations for 03 
+* 17 Mar 2022 - add more annotations for 03
 * 16 Mar 2022 - add more annotations for 03
 * 15 Mar 2022 - add more annotations for 03
 * 14 Mar 2022 - start adding annotations for notebook 03, see the work in progress here: https://www.learnpytorch.io/03_pytorch_computer_vision/
@@ -256,26 +268,26 @@ Almost daily updates of what's happening.
 * 4 Mar 2022 - recorded 10 videos for section 01
 * 20 Feb 2022 - recorded 8 videos for section 00, finished section, now onto 01
 * 18 Feb 2022 - recorded 13 videos for section 00
-* 17 Feb 2022 - recorded 11 videos for section 00 
-* 16 Feb 2022 - added setup guide 
+* 17 Feb 2022 - recorded 11 videos for section 00
+* 16 Feb 2022 - added setup guide
 * 12 Feb 2022 - tidy up README with table of course materials, finish images and slides for 01
 * 10 Feb 2022 - finished slides and images for 00, notebook is ready for publishing: https://www.learnpytorch.io/00_pytorch_fundamentals/
-* 01-07 Feb 2022 - add annotations for 02, finished, still need images, going to work on exercises/solutions today 
+* 01-07 Feb 2022 - add annotations for 02, finished, still need images, going to work on exercises/solutions today
 * 31 Jan 2022 - start adding annotations for 02
 * 28 Jan 2022 - add exercies and solutions for 01
 * 26 Jan 2022 - lots more annotations to 01, should be finished tomorrow, will do exercises + solutions then too
 * 24 Jan 2022 - add a bunch of annotations to 01
-* 21 Jan 2022 - start adding annotations for 01 
+* 21 Jan 2022 - start adding annotations for 01
 * 20 Jan 2022 - finish annotations for 00 (still need to add images), add exercises and solutions for 00
 * 19 Jan 2022 - add more annotations for 00
 * 18 Jan 2022 - add more annotations for 00
-* 17 Jan 2022 - back from holidays, adding more annotations to 00 
+* 17 Jan 2022 - back from holidays, adding more annotations to 00
 * 10 Dec 2021 - start adding annoations for 00
-* 9 Dec 2021 - Created a website for the course ([learnpytorch.io](https://learnpytorch.io)) you'll see updates posted there as development continues 
+* 9 Dec 2021 - Created a website for the course ([learnpytorch.io](https://learnpytorch.io)) you'll see updates posted there as development continues
 * 8 Dec 2021 - Clean up notebook 07, starting to go back through code and add annotations
 * 26 Nov 2021 - Finish skeleton code for 07, added four different experiments, need to clean up and make more straightforward
 * 25 Nov 2021 - clean code for 06, add skeleton code for 07 (experiment tracking)
-* 24 Nov 2021 - Update 04, 05, 06 notebooks for easier digestion and learning, each section should cover a max of 3 big ideas, 05 is now dedicated to turning notebook code into modular code 
+* 24 Nov 2021 - Update 04, 05, 06 notebooks for easier digestion and learning, each section should cover a max of 3 big ideas, 05 is now dedicated to turning notebook code into modular code
 * 22 Nov 2021 - Update 04 train and test functions to make more straightforward
 * 19 Nov 2021 - Added 05 (transfer learning) notebook, update custom data loading code in 04
 * 18 Nov 2021 - Updated vision code for 03 and added custom dataset loading code in 04
@@ -289,5 +301,5 @@ Almost daily updates of what's happening.
 * 27 Oct 2021 - add a bunch of code for 02, going to finish tomorrow/by end of week
 * 26 Oct 2021 - update 00, 01, 02 with outline/code, skeleton code for 00 & 01 done, 02 next
 * 23, 24 Oct 2021 - update 00 and 01 notebooks with more outline/code
-* 20 Oct 2021 - add v0 outlines for 01 and 02, add rough outline of course to README, this course will focus on less but better 
+* 20 Oct 2021 - add v0 outlines for 01 and 02, add rough outline of course to README, this course will focus on less but better
 * 19 Oct 2021 - Start repo 🔥, add fundamentals notebook draft v0
